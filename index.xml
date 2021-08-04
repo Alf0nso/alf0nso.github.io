@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gafanhoto</title>
+    <link>/</link>
+    <description>Recent content on Gafanhoto</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>/about/</link>
+      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>On the Internet I am generally known as Grasshopper, or &amp;ldquo;Gafanhoto&amp;rdquo; in Portuguese. I have already lived around age years on the planet earth and I hope to live the normal amount of time for a human being of my generation.
+I&amp;rsquo;m currently on the second year of my master&amp;rsquo;s degree, the &amp;ldquo;Thesis year&amp;rdquo;.
+ function calculate_age(dob) { var diff_ms = Date.now() - dob.getTime(); var age_dt = new Date(diff_ms); return Math.</description>
+    </item>
+    
+  </channel>
+</rss>
