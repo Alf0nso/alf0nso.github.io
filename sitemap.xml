@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/about/</loc>
+    <loc>https://alf0nso.github.io/Alf0nso/about/</loc>
     <lastmod>2021-08-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>https://alf0nso.github.io/Alf0nso/categories/</loc>
   </url><url>
-    <loc>/</loc>
+    <loc>https://alf0nso.github.io/Alf0nso/</loc>
   </url><url>
-    <loc>/post/</loc>
+    <loc>https://alf0nso.github.io/Alf0nso/post/</loc>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>https://alf0nso.github.io/Alf0nso/tags/</loc>
   </url>
 </urlset>

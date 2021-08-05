@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>post on Gafanhoto</title>
-    <link>/post/</link>
+    <link>https://alf0nso.github.io/Alf0nso/post/</link>
     <description>Recent content in post on Gafanhoto</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="https://alf0nso.github.io/Alf0nso/post/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
