@@ -12,8 +12,7 @@
       <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://alf0nso.github.io/Alf0nso/about/</guid>
-      <description>On the Internet I am generally known as Grasshopper, or &amp;ldquo;Gafanhoto&amp;rdquo; in Portuguese. I have already lived around age years on the planet earth and I hope to live the normal amount of time for a human being of my generation.
-I&amp;rsquo;m currently on the second year of my master&amp;rsquo;s degree.
+      <description>On the Internet, I am generally known as Grasshopper, or “Gafanhoto” in Portuguese. I have already lived around age years on the planet earth, and I hope to live the average amount of time for a human being of my generation. I am currently in the second year of my master’s degree.
  function calculate_age(dob) { var diff_ms = Date.now() - dob.getTime(); var age_dt = new Date(diff_ms); return Math.abs(age_dt.getUTCFullYear() - 1970); } var num = calculate_age(new Date(1998, 8, 28)); document.</description>
     </item>
     
