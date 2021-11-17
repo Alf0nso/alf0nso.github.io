@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://alf0nso.github.io/Alf0nso/</loc>
+    <lastmod>2021-08-03T16:35:43+01:00</lastmod>
+  </url><url>
+    <loc>https://alf0nso.github.io/Alf0nso/post/</loc>
+    <lastmod>2021-08-03T16:35:43+01:00</lastmod>
+  </url><url>
+    <loc>https://alf0nso.github.io/Alf0nso/post/my-music-journey/</loc>
+    <lastmod>2021-08-03T16:35:43+01:00</lastmod>
+  </url><url>
     <loc>https://alf0nso.github.io/Alf0nso/about/</loc>
     <lastmod>2021-08-03T00:00:00+00:00</lastmod>
   </url><url>
@@ -9,10 +18,6 @@
     <lastmod>2021-08-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://alf0nso.github.io/Alf0nso/categories/</loc>
-  </url><url>
-    <loc>https://alf0nso.github.io/Alf0nso/</loc>
-  </url><url>
-    <loc>https://alf0nso.github.io/Alf0nso/post/</loc>
   </url><url>
     <loc>https://alf0nso.github.io/Alf0nso/tags/</loc>
   </url>
