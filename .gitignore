@@ -1,0 +1,14 @@
+# Remove unecessary stack files
+Afonso.cabal
+.stack-work/
+stack.yaml
+stack.yaml.lock
+
+# Remove unecessary org-mode latex compilation
+ltximg/
+
+# Remove hakyll cache
+_cache/
+
+# Remove Tag files used by haskell-mode
+TAGS

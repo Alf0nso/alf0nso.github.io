@@ -1,0 +1,15 @@
+#+TITLE: Welcome
+#+STARTUP: inlineimages
+
+* Welcome to my corner!
+
+#+CAPTION: A Butterfly
+#+attr_html: :width 150px
+[[./images/butterfly.svg]]
+
+On the Internet, I am generally known as Grasshopper, or “Gafanhoto” in
+Portuguese. I am currently roaming around the [[https://en.wikipedia.org/wiki/Iberian_Peninsula][Iberian Peninsula]],
+mainly between Lisbon and Madrid. Also I might or might not be currently
+procrastinating some life obligations I should have already dealt with.
+Currently looking for a job, I like to work with compilers and
+functional languages.
