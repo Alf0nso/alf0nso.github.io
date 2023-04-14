@@ -1,7 +1,5 @@
 # Remove unecessary stack files
-Afonso.cabal
 .stack-work/
-stack.yaml
 stack.yaml.lock
 
 # Remove unecessary org-mode latex compilation
