@@ -1,5 +1,0 @@
-* My Curriculum Vitae
-
-#+BEGIN_EXPORT html
-<embed src="../docs/resume_cv.pdf" width="100%" height="80%">
-#+END_EXPORT
