@@ -10,7 +10,7 @@ import           System.FilePath
 -- | My own configuration for the website
 config :: Configuration
 config = defaultConfiguration
-         { destinationDirectory = "site"
+         { destinationDirectory = "docs"
          , previewPort          = 5000 }
 -- --------------------------------------
 
