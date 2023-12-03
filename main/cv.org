@@ -1,0 +1,13 @@
+#+Title: Curriculum Vitae
+
+* My Curriculum Vitae
+#+BEGIN_EXPORT html
+<div id = "CV" style="height: 80%"></div>
+<script>
+  if(PDFObject.supportsPDFs){
+  PDFObject.embed("docs/resume.pdf", "#CV", {height: "100%"});
+  } else {
+  window.location.replace("docs/resume.pdf")
+  }
+</script>
+#+END_EXPORT

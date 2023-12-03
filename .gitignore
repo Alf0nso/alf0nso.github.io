@@ -1,0 +1,9 @@
+# Stack
+.stack-work/
+stack.yaml.lock
+
+# Emacs Tags
+TAGS
+
+# Hakyll Cache
+_cache/

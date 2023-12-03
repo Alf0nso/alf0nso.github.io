@@ -1,0 +1,29 @@
+#+TITLE: Title of article
+#+STARTUP: latexpreview
+
+This page is only for testing features, if for any reason you are
+here... well enjoy? Or ignore it completely and go back to the main
+menu.
+
+* Article
+testing this: $x(t) = at + b$
+
+\[ x^n + y^n = z^n \]
+
+** Having code on the article
+more testing
+
+#+BEGIN_SRC haskell :exports both :results value
+  print "hey"
+#+END_SRC
+
+#+RESULTS:
+: hey
+
+#+caption: White Owl
+#+attr_html: :width 240px
+[[./images/owlNoBG2.png]]
+
+#+caption: White Owl
+#+attr_html: :width 400px
+[[./images/000050.JPG]]

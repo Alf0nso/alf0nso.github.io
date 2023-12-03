@@ -1,0 +1,12 @@
+#+TITLE: /now
+last updated on 2023-10-30
+
+I'm currently:
+- Trying to think of what should be a nice first blog post.... help... please....
+- Getting ready to work on the BSC :)
+- Trying to form a tech-centric cooperative based in Portugal!
+- Finished [[https://zaumstudio.com/#disco-elysium][Disco Elysium]] and really, really, REALLY loved it.
+
+#+caption: Once again me
+#+attr_html: :width
+[[./images/gafanhotoDither.png]]

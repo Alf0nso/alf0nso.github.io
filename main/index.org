@@ -1,0 +1,23 @@
+#+TITLE: Welcome
+
+* Welcome to my corner!
+On the Internet I am generally known as Grasshopper, or «Gafanhoto»
+(Portuguese). Have been roaming around the [[https://en.wikipedia.org/wiki/Iberian_Peninsula][Iberian Peninsula]], mainly
+between Lisbon, Salamanca, Barcelona and sometimes the north of
+Portugal. Currently working on the [[https://llvm.org/][LLVM Compiler Infrastructure]] in the
+Compiler's team of the [[https://www.bsc.es/pinto-cardoso-rafael-afonso][Barcelona Supercomputing Center]]. I work under the
+supervision of [[https://rofi.roger-ferrer.org/][Roger Ibáñez]]. My heart is set on compilers, programming
+languages and obviously music! In case you want to contact me you have
+my [[./contact.html][contact page]], or you can find me on discord on [[https://discord.gg/t6YPXq3t][DevPT]].
+
+#+caption: [[https://en.wikipedia.org/wiki/Butterfly][A Butterfly]]
+#+attr_html: :width 150px
+[[./images/butterfly.svg]]
+
+** /now
+According to the [[https://ghostze.ro/now/][now page]] of [[https://ghostze.ro/about/][ghostze]] the «now» movement has been
+started by [[https://sive.rs/nowff][Derek Sivers]]. It is quite a simple concept, a page where one
+writes what is doing now. I will try to update it as frequently as I
+can. With this, I decided to separate my «now» page from my «home» one
+in order to compartmentalize things and to follow the trend properly.
+My now page is: [[./now.html][now]]
