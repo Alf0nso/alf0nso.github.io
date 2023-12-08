@@ -1,0 +1,217 @@
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[left=0.4 in,top=0.4in,right=0.4 in,bottom=0.4in]{geometry} % Document margins
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}} 
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\name{Afonso Pinto Cardoso Rafael} % Your name
+
+% You can merge both of these into a single line, if you do not have a website.
+\address{
+  \href{mailto:afonsorafael@sapo.pt}{afonsorafael@sapo.pt} /
+  \href{https://alf0nso.github.io/}{website} /
+  \href{https://www.linkedin.com/in/afonsorafael/}{linkdin} /
+  \href{https://github.com/Alf0nso}{github}
+}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	INTERESTED IN
+%----------------------------------------------------------------------------------------
+
+%% \begin{rSection}{Interests}
+%%   {- Compiler development and functional languages.} \\
+%%   {- Type theory and PLT.} \\
+%%   {- Quantum Computing.}
+%% 
+%% \end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+
+  {\bf Masters in Computer Science},
+  Faculty of Sciences of the University of Lisbon (dropout)
+  \hfill {} \\
+  - Relevant Coursework: Compilation Techniques,
+  Domain Specific Languages, Quantum Computing.
+
+  {\bf B.S. in Geospatial Engineering},
+  Faculty of Sciences of the University of Lisbon
+  \hfill {2016 ‑ 2020}
+
+  {\bf Drumming},
+  International Drum Academy
+  \hfill {2016 ‑ 2020}
+  
+%  {\bf High School}, Colégio de São Tomas
+%  \hfill {2004 ‑ 2016}
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+% SKILLS	
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{SKILLS}
+  \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+    Programming languages &
+    Haskell, Typescript, Python, C, Lisp \\
+    Technical Skills & Compiler design and implementation, Web Development, Data processing \\
+    Soft Skills &
+    Enjoy speaking with people, Enjoy presentations and public speaking \\
+%%    Music Skills &
+%%    Drummer (5 years), Guitarist (6 years), Amateur choir
+  \end{tabular}\\
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE	
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{EXPERIENCE}
+  \textbf{Web Developer} \hfill July 2023 - Now\\
+  Digital MZN \hfill \textit{Lisbon, PT}
+  \begin{itemize}
+    \itemsep -3pt {}
+  \item Help with the development of the arms website (React Native \& Typescript).
+  \item Help maintain python environments of other members of the company.
+  \end{itemize}
+  
+  \textbf{Software Developer (Freelancing)} \hfill April 2023 - May 2023\\
+  Bynd \hfill \textit{Lisbon, PT}
+  \begin{itemize}
+    \itemsep -3pt {}    
+  \item Build a web crawler in python to collect data on companies to
+    be displayed on dashboard.
+  \item Using selenium as a dependency to allow interaction between the
+    crawler and the web page.
+  \end{itemize}
+
+  \textbf{Researcher (Intern)} \hfill September 2022 - March 2023\\
+  IMDEA Software \hfill \textit{Madrid, SP}
+  \begin{itemize}
+    \itemsep -3pt {}
+  \item Build relational benchmarks for Liquid Haskell, a compiler plugin that extends Haskell’s type system with refinement types.
+  \item Wrote a paper section describing the benchmarks.
+  \item Contributed with solving a bug in liquid-fixpoint    (\href{https://github.com/ucsd-progsys/liquid-fixpoint/pull/626}{Pull Request})
+  \end{itemize}
+  
+  \textbf{Research Fellowship} \hfill January 2022 - July 2022\\
+% Faculty of Sciences of the university of Lisbon
+  LASIGE \hfill \textit{Lisbon, PT}
+  \begin{itemize}
+    \itemsep -3pt {}
+  \item \href{http://rss.di.fc.ul.pt/tryit/FreeST}{Freest} is a functional programming language
+    that uses session types for safer communication.
+  \item Developed a compiler for the Freest language, targeting JavaScript (Built with Haskell).
+  \item Built a test suite for the compiler.
+  \item \href{https://alf0nso.github.io/Alf0nso/docs/FreeSTwebCompiler.pdf}{Best Poster} - 1st, LASIGE Workshop'22.
+  \end{itemize}
+
+  \textbf{Summer with science (Research Fellowship)} \hfill August 2021 \\
+  LASIGE \hfill \textit{Lisbon, PT}
+  \begin{itemize}
+    \itemsep -3pt {} 
+  \item Built programs with Freest that later got into the testing suite.
+  \item Found bugs and reporting them during development.
+  \end{itemize}
+
+  \textbf{Software Developer (Intern)} \hfill 2019 - 2020 \\
+  Think Future \hfill \textit{Lisbon, PT}
+  \begin{itemize}
+    \itemsep -3pt {} 
+  \item Built a system to manage aerial information for control of drone flight (Python).
+  \end{itemize}
+
+  \textbf{Data Science (Intern)} \hfill August 2019 - September 2019 \\
+  ITC Faculty of Geo‑information Science and Earth Observation \hfill \textit{Ensched, NL}
+  \begin{itemize}
+    \itemsep -3pt {} 
+  \item Wrote data processing code using Dask, an open-source Python library for parallel computing.
+  \item Lectured practical classes on the Institute.
+  \item Processed geographical information for decision making.
+  \end{itemize}
+\end{rSection} 
+
+%----------------------------------------------------------------------------------------
+% Honors & Awards	
+%----------------------------------------------------------------------------------------
+
+%% \begin{rSection}{Honors \& Awards}
+%%   \begin{itemize}
+%%   \item \href{https://alf0nso.github.io/Alf0nso/mposter/}{Best Poster} - 1st, LASIGE Workshop'22.
+%%   \end{itemize}
+%% \end{rSection}
+
+%----------------------------------------------------------------------------------------
+% Presentations
+%----------------------------------------------------------------------------------------
+
+% \begin{rSection}{Presentations}
+%   \begin{itemize}
+%   \item \href{https://www.youtube.com/watch?v=p7FrTaukioI&t=2693s}{Eu uso Emacs, roast me.} - DevPT - First Meetup.
+%   \end{itemize}
+% \end{rSection}
+
+%----------------------------------------------------------------------------------------
+% Extra-Curricular Activities	
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Extra-Curricular Activities}
+
+  \textbf{Discord Admin/Event Manager} \hfill 2020 - Present \\
+  DevPT \hfill \textit{Lisbon, PT}
+  \begin{itemize}
+    \itemsep -3pt {} 
+  \item Participated in the devPT talks as Manager.
+  \item Participated in the devPT as Speaker (\href{https://www.youtube.com/watch?v=p7FrTaukioI&t=2693s}{Eu uso Emacs, roast me.})
+  \item Moderate and Help make decisions on the Discord platform.
+  \item Help manage social media.
+  \end{itemize}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Music}
+%  \vspace{-1.25em}
+
+  \textbf{Drummer} \hfill 2019 - 2023 \\
+  AZMA \hfill \textit{Lisbon, PT}
+  \begin{itemize}
+    \itemsep -3pt {} 
+  \item Play drums and help compose the songs.
+  \item Help manage the social accounts and project contacts.
+  \item Participated on the recording of songs like: \href{https://www.youtube.com/watch?v=5XqsTF8x76Y}{Akadom}
+  \end{itemize}
+
+  \textbf{Guitarist} \hfill 2022 ‑ 2023 \\
+  Split Objects \hfill \textit{Lisbon, PT}
+  \begin{itemize}
+    \itemsep -3pt {} 
+  \item Support guitarist for the band.
+  \item Help with gigs.
+  \end{itemize}
+
+  \textbf{Drummer} \hfill 2017 ‑ 2019 \\
+  PodPop \hfill \textit{Lisbon, PT}
+  \begin{itemize}
+    \itemsep -3pt {} 
+  \item Played drums and helped compose music.
+  \item Helped record the video clips.
+  \item Participated on the recording of songs like: \href{https://www.youtube.com/watch?v=9566jWHH9QU}{Is It Love Or Sacrifice},
+    \href{https://www.youtube.com/watch?v=P65iTaV80Ps}{BlackOut},
+    \href{https://www.youtube.com/watch?v=w3lSOWdkliA}{Spoon Of The Gods}.
+  \end{itemize}
+
+  \textbf{Guitarist} \hfill 2016 \\
+  Why Knot \hfill \textit{Lisbon, PT}
+  \begin{itemize}
+    \itemsep -3pt {} 
+  \item Played guitar and helped compose music.
+  \item Participated on the recording of songs like: \href{https://www.youtube.com/watch?v=YBZZrDuIRKo}{Nothing Concrete}.
+  \end{itemize}  
+\end{rSection} 
+
+\end{document}
