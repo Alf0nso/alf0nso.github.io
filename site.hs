@@ -10,7 +10,7 @@ import           System.FilePath
 -- | My own configuration for the website
 config :: Configuration
 config = defaultConfiguration
-         { destinationDirectory = "site"
+         { destinationDirectory = "docs"
          , previewPort          = 5000 }
 -- --------------------------------------
 
@@ -50,7 +50,7 @@ main = hakyllWith config $ do
       route   $ removeMainFolder "images/"
       compile copyFileCompiler
 
-  match "main/docs/*" $ do
+  match "main/extra/*" $ do
     route   $ removeMainFolder "docs/"
     compile copyFileCompiler
 
