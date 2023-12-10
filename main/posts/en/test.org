@@ -1,0 +1,14 @@
+---
+post: I want to blog
+published: 2023-12-10
+author: Gafanhoto
+---
+
+* My first blog post
+
+#+caption: ()
+#+attr_html: :width 240px
+[[./images/ditheredDarkFace.png]]
+
+I have been thinking of writing for a while.
+This is me testing blogging in org mode!!
