@@ -1,11 +1,10 @@
-------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
+import           Data.Maybe
 import           Hakyll
 import           Text.Pandoc.Options
 import           System.FilePath
-------------------------------------------------------------------------
--- Helper functions ----------------------------------------------------
+import           Debug.Trace
 
 -- | My own configuration for the website
 config :: Configuration
@@ -14,10 +13,17 @@ config = defaultConfiguration
          , previewPort          = 5000 }
 -- --------------------------------------
 
+-- --------------------------------------
+-- Related to posts
+orgTitle :: Context String
+orgTitle = field "orgtitle" $ \item -> do
+  metadata <- getMetadata (itemIdentifier item)
+  return $ fromMaybe "No title upsi" $ lookupString "title" metadata
+
+-- dateField "date" "%B %e, %Y"
 postCtx :: Context String
-postCtx =
-    dateField "date" "%B %e, %Y"
-    `mappend` defaultContext
+postCtx = orgTitle <> defaultContext
+-- --------------------------------------
 
 {- Include MathJax in the pandoc options so it is possible
 to render pretty math equations. -}
@@ -39,7 +45,7 @@ baseFolderAndHtml =
 
 removeMainFolder :: FilePath -> Routes
 removeMainFolder path =
-  customRoute $ ((++) path) . takeFileName . toFilePath
+  customRoute $ (++) path . takeFileName . toFilePath
 
 ------------------------------------------------------------------------
 main :: IO ()
@@ -47,32 +53,31 @@ main = hakyllWith config $ do
   match "templates/*" $ compile templateBodyCompiler
 
   match "main/images/*" $ do
-      route   $ removeMainFolder "images/"
-      compile copyFileCompiler
+    route   $ removeMainFolder "images/"
+    compile copyFileCompiler
 
   match "main/extra/*" $ do
     route   $ removeMainFolder "docs/"
     compile copyFileCompiler
 
   match "css/*" $ do
-      route   idRoute
-      compile compressCssCompiler
+    route   idRoute
+    compile compressCssCompiler
 
   match "main/*" $ do
-      route baseFolderAndHtml
-      compile $ grassCompiler
-        >>= loadAndApplyTemplate "templates/default.html" defaultContext
-        >>= relativizeUrls
+    route baseFolderAndHtml
+    compile $ grassCompiler
+      >>= loadAndApplyTemplate "templates/default.html" defaultContext
+      >>= relativizeUrls
 
-{-
-  match "posts/*" $ do
+  match "posts/en/*" $ do
     route $ setExtension "html"
     compile $ grassCompiler
       >>= loadAndApplyTemplate "templates/post.html"    postCtx
       >>= loadAndApplyTemplate "templates/default.html" postCtx
       >>= relativizeUrls
 
-  create ["archive.html"] $ do
+{- create ["archive.html"] $ do
       route idRoute
       compile $ do
           posts <- recentFirst =<< loadAll "posts/*"
@@ -87,4 +92,3 @@ main = hakyllWith config $ do
               >>= loadAndApplyTemplate "templates/default.html"
               archiveCtx
               >>= relativizeUrls -}
-------------------------------------------------------------------------
