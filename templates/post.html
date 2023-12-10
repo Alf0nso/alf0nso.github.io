@@ -1,16 +1,13 @@
 <article>
   <section class="header">
-    $if(date)$
-    Posted on $date$
+    $if(published)$
+    Posted on $published$
     $endif$
-    $if(author)$
-    by $author$
+    $if(author)$ by $author$
+    $else$ by unknown
     $endif$
   </section>
   <section>
-    $if(orgtitle)$
-    <h1>$orgtitle$</h1>
-    $endif$
     $body$
   </section>
 </article>

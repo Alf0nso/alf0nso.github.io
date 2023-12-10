@@ -2,6 +2,7 @@
 import           Data.Monoid (mappend)
 import           Data.Maybe
 import           Hakyll
+import           Hakyll.Core.Compiler
 import           Text.Pandoc.Options
 import           System.FilePath
 import           Debug.Trace
@@ -13,16 +14,20 @@ config = defaultConfiguration
          , previewPort          = 5000 }
 -- --------------------------------------
 
--- --------------------------------------
--- Related to posts
-orgTitle :: Context String
-orgTitle = field "orgtitle" $ \item -> do
-  metadata <- getMetadata (itemIdentifier item)
-  return $ fromMaybe "No title upsi" $ lookupString "title" metadata
-
--- dateField "date" "%B %e, %Y"
 postCtx :: Context String
-postCtx = orgTitle <> defaultContext
+postCtx = dateField "date" "%B %e, %Y"
+          <> defaultContext
+
+posts :: Context String
+posts = listField "posts" postCtx $
+        do posts <- recentFirst =<< loadAll "main/posts/en/*"
+           return posts
+
+archiveCtx :: Context String
+archiveCtx = posts
+             <> constField "title" "Archives"
+             <> defaultContext
+             
 -- --------------------------------------
 
 {- Include MathJax in the pandoc options so it is possible
@@ -52,17 +57,18 @@ main :: IO ()
 main = hakyllWith config $ do
   match "templates/*" $ compile templateBodyCompiler
 
+  match "css/*" $ do
+    route   idRoute
+    compile compressCssCompiler
+
   match "main/images/*" $ do
     route   $ removeMainFolder "images/"
     compile copyFileCompiler
 
+  {- moving pdfs and extra info into a docs folder-}
   match "main/extra/*" $ do
     route   $ removeMainFolder "docs/"
     compile copyFileCompiler
-
-  match "css/*" $ do
-    route   idRoute
-    compile compressCssCompiler
 
   match "main/*" $ do
     route baseFolderAndHtml
@@ -70,25 +76,16 @@ main = hakyllWith config $ do
       >>= loadAndApplyTemplate "templates/default.html" defaultContext
       >>= relativizeUrls
 
-  match "posts/en/*" $ do
-    route $ setExtension "html"
+  match "main/posts/archive.org" $ do
+    route baseFolderAndHtml
+    compile $ grassCompiler
+        >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
+        >>= loadAndApplyTemplate "templates/default.html" archiveCtx
+        >>= relativizeUrls
+  
+  match "main/posts/en/*" $ do
+    route baseFolderAndHtml
     compile $ grassCompiler
       >>= loadAndApplyTemplate "templates/post.html"    postCtx
       >>= loadAndApplyTemplate "templates/default.html" postCtx
       >>= relativizeUrls
-
-{- create ["archive.html"] $ do
-      route idRoute
-      compile $ do
-          posts <- recentFirst =<< loadAll "posts/*"
-          let archiveCtx =
-                  listField "posts" postCtx (return posts) `mappend`
-                  constField "title" "Archives"            `mappend`
-                  defaultContext
-
-          makeItem ""
-              >>= loadAndApplyTemplate "templates/archive.html"
-              archiveCtx
-              >>= loadAndApplyTemplate "templates/default.html"
-              archiveCtx
-              >>= relativizeUrls -}
