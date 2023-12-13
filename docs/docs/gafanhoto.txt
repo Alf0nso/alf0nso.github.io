@@ -1,0 +1,15 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+ //_____ __
+@ )====// .\___
+\#\_\__(_/_\\_/
+  / /       \\
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYIAB0WIQQdShRk0InA4Pe8Av1yS2ppI1DqTAUCZXnragAKCRByS2ppI1Dq
+TM4OAP9zOBCEyo/21Kfihq7jc8KL0jUGONTOy0Q8nq9yjSg3xwD+IgAfn0zhGM8x
+USFYvNcgDJj/A7PAZ6/K7CIgQ/xYPA0=
+=dQy7
+-----END PGP SIGNATURE-----
+
