@@ -15,3 +15,4 @@ always say "hi", I will definitely have a conversation with you.
 - GitHub: [[https://github.com/Alf0nso][Afonso Rafael]]
 - TikTok: [[https://www.tiktok.com/@grassyyhopper][Grassy]]
 - Email: afonsorafael@sapo.pt
+- public key: [[./publickey.html][publickey]]
