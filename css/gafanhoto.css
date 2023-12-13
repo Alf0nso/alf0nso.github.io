@@ -8,7 +8,7 @@ a {
 }
 
 li::marker {
-    content: '⦔ ';
+    content: '\2294  ';
 }
 
 li {
