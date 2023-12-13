@@ -1,0 +1,23 @@
+#+TITLE: Public Key
+
+* My public key
+
+This is my public key (generated on 2023-12-13):
+#+begin_src pgp
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mDMEZXneNBYJKwYBBAHaRw8BAQdA99BxtG78ysK3AEtwyenzYyygKtxX2HM7LQZN
+1cJWeW+0NEFmb25zbyAoZ2FmYW5ob3RvKSAoTWFpbiBrZXkpIDxhZm9uc29yYWZh
+ZWxAc2Fwby5wdD6IkAQTFggAOBYhBB1KFGTQicDg97wC/XJLamkjUOpMBQJled40
+AhsDBQsJCAcCBhUKCQgLAgQWAgMBAh4BAheAAAoJEHJLamkjUOpMiCsBAOg+c69V
+DjGAe8wqdhfZQmTky/4idmGwdIu3kSMn9xnyAQDSYXj1JPC+DbUoqQ336LOCiO+H
+FwOcnP9KxpV+uThsCrg4BGV53jQSCisGAQQBl1UBBQEBB0BnOiqK9AwnHf75di23
+Hp7X+CTHmMGoq00RFrmyojivAAMBCAeIeAQYFggAIBYhBB1KFGTQicDg97wC/XJL
+amkjUOpMBQJled40AhsMAAoJEHJLamkjUOpMhboA/31ZJMcIEgE5ibDjz43iznDF
+bGUdqj+VKgKJjJRXLDkDAP97XQfgwmS1BuGps2C9p0vOAvtWlaidMS166OD4bmtF
+Ag==
+=8YX2
+-----END PGP PUBLIC KEY BLOCK-----
+#+end_src
+
+This is a message signed by me: [[./signmessage.html][gafanhoto]]
