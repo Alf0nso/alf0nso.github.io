@@ -1,0 +1,8 @@
+#+TITLE: My Personal Website
+
+This website is being generated with [[https://jaspervdj.be/hakyll/][hakyll]]. The choice is quite
+obvious for anyone that knows me...
+
+#+caption: ()
+#+attr_html: :width 240px
+[[./main/images/ditheredDarkFace.png]]
