@@ -4,6 +4,4 @@ This website is being generated with [[https://jaspervdj.be/hakyll/][hakyll]]. T
 obvious for anyone that knows me...
 
 #+caption: ()
-#+ATTR_HTML: :width 200px
-#+ATTR_ORG: :width 200px
-[[./main/images/ditheredDarkFace.png]]
+[[./ditheredDarkFace.png]]
