@@ -5,7 +5,14 @@ import           Hakyll
 import           Hakyll.Core.Compiler
 import           Text.Pandoc.Options
 import           System.FilePath
-import           Debug.Trace
+import           System.Directory (createDirectoryIfMissing)
+import           System.FilePath.Posix (takeDirectory)
+
+-- Helper functions
+createAndWriteFile :: FilePath -> String -> IO ()
+createAndWriteFile path content = do
+  createDirectoryIfMissing True $ takeDirectory path
+  writeFile path content
 
 -- | My own configuration for the website
 config :: Configuration
@@ -48,13 +55,18 @@ baseFolderAndHtml :: Routes
 baseFolderAndHtml =
   customRoute $ takeFileName . (`replaceExtension` "html") . toFilePath
 
+folderAndHtml :: FilePath -> Routes
+folderAndHtml path =
+    customRoute $
+    (++) path . takeFileName . (`replaceExtension` "html") . toFilePath
+
 removeMainFolder :: FilePath -> Routes
 removeMainFolder path =
   customRoute $ (++) path . takeFileName . toFilePath
 
 ------------------------------------------------------------------------
-main :: IO ()
-main = hakyllWith config $ do
+buildSite :: IO ()
+buildSite = hakyllWith config $ do
   match "templates/*" $ compile templateBodyCompiler
 
   match "css/*" $ do
@@ -71,21 +83,30 @@ main = hakyllWith config $ do
     compile copyFileCompiler
 
   match "main/*" $ do
-    route baseFolderAndHtml
+    route     baseFolderAndHtml
     compile $ grassCompiler
       >>= loadAndApplyTemplate "templates/default.html" defaultContext
       >>= relativizeUrls
 
+  match "main/Alf0nso/index.org" $ do
+    route   $ folderAndHtml "Alf0nso/"
+    compile $ grassCompiler
+      >>= loadAndApplyTemplate "templates/default.html" defaultContext
+      >>= relativizeUrls
+  
   match "main/posts/archive.org" $ do
-    route baseFolderAndHtml
+    route     baseFolderAndHtml
     compile $ grassCompiler
         >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
         >>= loadAndApplyTemplate "templates/default.html" archiveCtx
         >>= relativizeUrls
   
   match "main/posts/en/*" $ do
-    route baseFolderAndHtml
+    route     baseFolderAndHtml
     compile $ grassCompiler
       >>= loadAndApplyTemplate "templates/post.html"    postCtx
       >>= loadAndApplyTemplate "templates/default.html" postCtx
       >>= relativizeUrls
+
+main :: IO ()
+main = buildSite

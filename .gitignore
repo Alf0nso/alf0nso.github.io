@@ -1,6 +1,8 @@
 # Stack
 .stack-work/
 stack.yaml.lock
+package-lock.json
+package.json
 
 # Emacs Tags
 TAGS
