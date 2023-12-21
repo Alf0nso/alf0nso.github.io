@@ -5,7 +5,7 @@ On the Internet I am generally known as Grasshopper, or «Gafanhoto»
 (Portuguese). I have been roaming around the [[https://en.wikipedia.org/wiki/Iberian_Peninsula][Iberian Peninsula]], mainly
 between Lisbon, Salamanca, Barcelona and sometimes the north of
 Portugal. I am currently working on the [[https://llvm.org/][LLVM Compiler Infrastructure]] in
-the compiler's team of the [[https://www.bsc.es/pinto-cardoso-rafael-afonso][Barcelona Supercomputing Center]]. I work 
+the compiler's team of the [[https://www.bsc.es/pinto-cardoso-rafael-afonso][Barcelona Supercomputing Center]], working 
 under the supervision of [[https://rofi.roger-ferrer.org/][Roger Ibáñez]]. Previously I was interning under 
 the amazing [[https://nikivazou.github.io/][Niki Vazou]] on [[https://software.imdea.org/people/alumni/][IMDEA Software]], working on [[https://github.com/ucsd-progsys/liquidhaskell][Liquid Haskell]]. My 
 heart is set on compilers, programming languages and obviously music! 
