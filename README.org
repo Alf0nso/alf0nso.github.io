@@ -1,13 +1,13 @@
 #+TITLE: My Personal Website
 
 This website is being generated with [[https://jaspervdj.be/hakyll/][hakyll]]. A choice which is quite
-obvious if you know me... yes, Haskell. The template being used here 
-was made by me with CSS and html. It works well enough on mobile and 
-larger screens and although some might call it simple I call it good 
-enough. The whole website project has suffered a lot of changes trough 
-out the past years (it started in 2021 according to the commit 
-history). If you want to laugh at my previous attempts of making a 
-reasonable website go ahead, I do that a lot of times.
+obvious if you know me... yes, Haskell. The template used on the 
+website was made by me with CSS and html. It works well enough on 
+mobile and larger screens. Although it still has some problems, I will 
+keep improving it. The whole website project has suffered a lot of 
+changes trough out the past years (it started in 2021 according to the 
+commit history). If you want to laugh at my previous attempts of making 
+a reasonable website go ahead, I do that a lot of times.
 
 #+caption: ()
 [[./grapher.png]]
