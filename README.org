@@ -11,3 +11,8 @@ a reasonable website go ahead, I do that a lot of times.
 
 #+caption: ()
 [[./grapher.png]]
+
+The image above is a very interestingly shaped stapler. More than 
+enjoying it's form I believe it sort of represents well the purpose of 
+this website. I am trying to make this repository a compilation of 
+information about me and my thoughts stapled together in one place.
