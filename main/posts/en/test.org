@@ -5,7 +5,6 @@ author: Gafanhoto
 ---
 
 * My first blog post
-
 #+caption: ()
 #+attr_html: :width 240px
 [[./images/ditheredDarkFace.png]]
