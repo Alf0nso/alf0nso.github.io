@@ -1,5 +1,5 @@
 ---
-post: I want to blog
+title: I want to blog
 published: 2023-12-10
 author: Gafanhoto
 ---
