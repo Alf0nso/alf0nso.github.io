@@ -21,7 +21,6 @@ li {
  */
 .container {
     display: grid;
-    /*grid-auto-columns: 1fr;*/
     grid-template-columns: 200px 1fr 200px;
     grid-template-rows:    auto  1fr auto;
     
@@ -35,8 +34,6 @@ li {
     height: 100vh;
     margin-left: 20px;
     margin-right: 20px;
-    /* margin-top: 0px; */
-    /* margin-bottom: 0px; */
 }
 
 /* Main related configuration */
@@ -106,6 +103,7 @@ li {
 }
 
 .Main h1 {
+    clear: both;
     font-size: 2.5em;
     border-bottom: 1px solid black;
     text-align: right;
@@ -202,6 +200,7 @@ li {
    other graphical objects that come from org files.
 */
 figure {
+    clear: both;
     display: inline-table;
     width: fit-content;
     float: left;
@@ -253,14 +252,12 @@ figcaption {
 	width: fit-content;
 	float: unset;
     }
-
+    
     .Main h1 {
-	/* origin: 2.5em */
 	font-size: 2em;
     }
 
     .Main h2 {
-	/* origin: 2em */
 	font-size: 1.5em;
     }
 
