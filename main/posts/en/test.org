@@ -1,13 +1,16 @@
 ---
-title: I want to blog
+title: starting to blog
 published: 2023-12-10
 author: Gafanhoto
 ---
 
-* My first blog post
+* I Like the idea of writing
 #+caption: ()
 #+attr_html: :width 240px
 [[./images/ditheredDarkFace.png]]
 
-I have been thinking of writing for a while.
-This is me testing blogging in org mode!!
+I have been thinking of writing for a while...
+
+#+caption: butterfly
+#+attr_html: :width 240px
+[[./images/butterfly2.svg]]
