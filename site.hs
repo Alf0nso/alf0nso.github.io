@@ -20,9 +20,8 @@ config = defaultConfiguration
          { destinationDirectory = "docs"
          , previewPort          = 5000 }
 -- --------------------------------------
-
 postCtx :: Context String
-postCtx = dateField "date" "%B %e, %Y"
+postCtx = dateField "published" "%B %e, %Y"
           <> defaultContext
 
 posts :: Context String
@@ -32,7 +31,6 @@ posts = listField "posts" postCtx $
 
 archiveCtx :: Context String
 archiveCtx = posts
-             <> constField "title" "Archives"
              <> defaultContext
              
 -- --------------------------------------
