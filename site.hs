@@ -80,6 +80,10 @@ buildSite = hakyllWith config $ do
     route   $ removeMainFolder "docs/"
     compile copyFileCompiler
 
+  match "main/js/*" $ do
+    route   $ removeMainFolder "js/"
+    compile copyFileCompiler
+
   match "main/*" $ do
     route     baseFolderAndHtml
     compile $ grassCompiler
