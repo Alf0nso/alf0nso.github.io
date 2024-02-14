@@ -1,10 +1,11 @@
 #+TITLE: /now
-last updated on 2023-12-10
+last updated on 2024-02-14
 
 I'm currently:
-- Right now I am actually writing the first blog post...
-- Currently working on BSC and enjoying it very much :)
-- Trying to read Silvia Federici
+- Writing is hard (haven't actually written any blog post)
+- On BSC I am working with loop optimisation
+- Finished the book I was reading from Silvia Federici
+- Currently reading "Ensaio sobre a lucidez" by Saramago
 
 #+caption: Once again me
 #+attr_html: :width
