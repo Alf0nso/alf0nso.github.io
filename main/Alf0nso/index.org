@@ -8,4 +8,6 @@
 Upsi... At some point in time this path was pointing to the main page 
 of the site. Not anymore! To make a long story short, I did not 
 know one could make a github repository publish the web pages with 
-"alf0nso.github.io" as root. Thanks to [[https://bernzrdo.wtf/][bernzrdo.wtf]] now I know, (aka [[https://twitter.com/espamamapixa][Microsoft Office® PowerPoint]] on twitter). If you want to go to the website's main page you just have to click on the little grasshopper.
+"alf0nso.github.io" as root. Thanks to [[https://bernzrdo.wtf/][bernzrdo.wtf]] now I know,
+(aka [[https://twitter.com/espamamapixa][Microsoft Office® PowerPoint]] on twitter). If you want to go to the
+website's main page you just have to click on the little grasshopper.

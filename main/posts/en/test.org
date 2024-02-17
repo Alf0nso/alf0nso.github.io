@@ -10,7 +10,3 @@ author: Gafanhoto
 [[./images/ditheredDarkFace.png]]
 
 I have been thinking of writing for a while...
-
-#+caption: butterfly
-#+attr_html: :width 240px
-[[./images/butterfly2.svg]]
