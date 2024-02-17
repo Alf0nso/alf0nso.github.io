@@ -1,4 +1,5 @@
-#+TITLE: Welcome
+#+title: Welcome
+#+startup: fold latexpreview inlineimages
 
 * Welcome to my corner!
 On the Internet I am generally known as Grasshopper, or «Gafanhoto»

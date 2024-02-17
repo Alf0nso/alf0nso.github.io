@@ -1,4 +1,5 @@
-#+TITLE: Ups page...
+#+title: Ups page...
+#+startup: fold latexpreview inlineimages
 
 * This was not really planed ahead
 #+caption: Agrafador

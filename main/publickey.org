@@ -1,4 +1,4 @@
-#+TITLE: Public Key
+#+title: Public Key
 
 * My public key
 

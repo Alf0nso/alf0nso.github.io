@@ -1,4 +1,5 @@
-#+Title: Curriculum Vitae
+#+title: Curriculum Vitae
+#+startup: fold latexpreview inlineimages
 
 * My Curriculum Vitae
 #+BEGIN_EXPORT html

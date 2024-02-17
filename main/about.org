@@ -1,5 +1,5 @@
-#+TITLE: About Me
-#+STARTUP: latexpreview
+#+title: About Me
+#+startup: fold latexpreview inlineimages
 
 * About Me
 #+caption: Me, Myself and I

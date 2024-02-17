@@ -1,5 +1,5 @@
-#+TITLE: Title of article
-#+STARTUP: latexpreview
+#+title: Title of article
+#+startup: fold latexpreview inlineimages
 
 This page is only for testing features, if for any reason you are
 here... well enjoy? Or ignore it completely and go back to the main

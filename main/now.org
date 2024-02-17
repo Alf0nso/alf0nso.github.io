@@ -1,4 +1,5 @@
-#+TITLE: /now
+#+title: /now
+#+startup: fold latexpreview inlineimages
 last updated on 2024-02-14
 
 I'm currently:
