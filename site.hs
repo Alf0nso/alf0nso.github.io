@@ -69,6 +69,11 @@ removeMainFolder :: FilePath -> Routes
 removeMainFolder path =
   customRoute $ (++) path . takeFileName . toFilePath
 
+-- If there is a draft field and it has a value other than false, then
+-- the site generator will not publish it/consider it
+filterDrafts :: Metadata -> Bool
+filterDrafts meta = maybe True (=="false") $ lookupString "draft" meta
+
 ------------------------------------------------------------------------
 buildSite :: IO ()
 buildSite = hakyllWith config $ do
@@ -113,7 +118,7 @@ buildSite = hakyllWith config $ do
         >>= loadAndApplyTemplate "templates/default.html" archiveCtx
         >>= relativizeUrls
   
-  match "main/posts/en/*" $ do
+  matchMetadata "main/posts/en/*" filterDrafts $ do
     route     baseFolderAndHtml
     compile $ grassCompiler
       >>= loadAndApplyTemplate "templates/post.html"    postCtx
