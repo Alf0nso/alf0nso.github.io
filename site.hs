@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+import           Control.Monad (liftM)
 import           Data.Monoid (mappend)
 import           Data.Maybe
 import           Hakyll
@@ -37,16 +38,22 @@ archiveCtx = posts
 
 {- Include MathJax in the pandoc options so it is possible
 to render pretty math equations. -}
-pandocOptions :: WriterOptions
-pandocOptions = defaultHakyllWriterOptions
+pandocWOptions :: WriterOptions
+pandocWOptions = defaultHakyllWriterOptions
                 { writerHTMLMathMethod = MathJax "" }
 
 {- My personal website compiler with my preferences. -}
+grassBiblioCompiler :: Compiler (Item String)
+grassBiblioCompiler = do
+  csl <- load "bib/tpls.csl"
+  bib <- load "bib/global.bib"
+  getResourceBody
+    >>= readPandocBiblio defaultHakyllReaderOptions csl bib
+    >>= pure . (writePandocWith pandocWOptions)
+
 grassCompiler :: Compiler (Item String)
-grassCompiler =
-  pandocCompilerWith
-  defaultHakyllReaderOptions
-  pandocOptions
+grassCompiler = pandocBiblioCompiler "bib/acm.csl" "bib/global.bib"
+
 
 {- Used to process the main contents of the site. -}
 baseFolderAndHtml :: Routes
@@ -65,6 +72,9 @@ removeMainFolder path =
 ------------------------------------------------------------------------
 buildSite :: IO ()
 buildSite = hakyllWith config $ do
+  match "bib/global.bib" $ compile biblioCompiler
+  match "bib/acm.csl" $ compile cslCompiler
+  
   match "templates/*" $ compile templateBodyCompiler
 
   match "css/*" $ do

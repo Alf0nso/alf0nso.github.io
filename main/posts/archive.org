@@ -8,7 +8,8 @@
 
 I really enjoy to write and share the things I create. This space is
 intended for that! Right now is quite empty... Writing takes time and I
-procrastinate a lot... But with time I hope I will be able to obligate myself to write down my thoughts, ideas and discoveries... I hope...
+procrastinate a lot... But with time I hope I will be able to obligate
+myself to write down my thoughts, ideas and discoveries... I hope...
 
 ** Things I am part of
 I tend to join myself into too many projects, currently besides my
@@ -17,5 +18,3 @@ normal day job I am:
 - Staff/admin and member of [[https://devpt.co/][DevPT]]
 - Member of [[https://rggd.gitlab.io/members.html][RUGGED]]
 - member of a cooperative called Axónio (currently under development)
-
-

@@ -3,10 +3,11 @@ title: starting to blog
 published: 2023-12-10
 author: Gafanhoto
 ---
+#+BIBLIOGRAPHY: ../../../bib/global.bib
 
 * I Like the idea of writing
 #+caption: ()
 #+attr_html: :width 240px
 [[./images/ditheredDarkFace.png]]
 
-I have been thinking of writing for a while...
+I have been thinking [cite:@GlossarWiki:Church:1941] of writing for a while...
