@@ -10,4 +10,9 @@ author: Gafanhoto
 #+attr_html: :width 240px
 [[./images/ditheredDarkFace.png]]
 
+* Test
+#+caption: ()
+#+attr_html: :width 240px
+[[./images/butterfly2.svg]]
+
 I have been thinking [cite:@GlossarWiki:Church:1941] of writing for a while...

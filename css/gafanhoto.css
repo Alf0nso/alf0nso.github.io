@@ -3,17 +3,10 @@ html, body {
     font-family: serif;
 }
 
-a {
-    text-decoration: none;
-}
+a { text-decoration: none; }
 
-li::marker {
-    content: '\2294  ';
-}
-
-li {
-    font-size: 1.2em;
-}
+li::marker { content: '\2294  '; }
+li { font-size: 1.2em; }
 
 /* General description of the page.
    The whole website follows a very typical
@@ -37,9 +30,7 @@ li {
 }
 
 /* Main related configuration */
-.Main {
-    grid-area: Main;
-}
+.Main { grid-area: Main; }
 
 .Main p {
     font-size: 1.4em;
@@ -122,7 +113,7 @@ li {
 }
 
 .Footer-Text img {
-    width: 1.9em;
+    width: 2.1em;
 }
 
 .Footer-Text a {
@@ -215,7 +206,6 @@ figcaption::after {
 }
 
 figcaption {
-    font-style: italic;
     display: table-caption;
     caption-side: bottom;
 }
@@ -268,10 +258,8 @@ figcaption {
     /* ------------------------------ */
 
     /* Menu related configuration */
-    .Menu a:not(.logo) { /* origin: 1.7em */ font-size:1.7em; }
-    
-    .Menu hr { display: none; }
-    
+    .Menu a:not(.logo) { /* origin: 1.7em */ font-size:1.7em; }    
+    .Menu hr { display: none; }    
     /* .logo img { display: none; } */
 
     /* ------------------------------ */
