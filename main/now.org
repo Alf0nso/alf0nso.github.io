@@ -1,13 +1,21 @@
 #+title: /now
 #+startup: fold latexpreview inlineimages
-last updated on 2024-02-14
 
-I'm currently:
+* /now
+** 2024-05-10
+#+caption: Once again me
+#+attr_html: :width
+[[./images/gafanhotoDither.png]]
+
+Currently:
+- Writing is still hard... need a better way to motivate myself
+- Doing some stats on the loop optimization pass I have been working on.
+- Currently playing Hylics (really, really good game)
+- Currently reading "Feminism and anarchism" by Emma Goldman
+- Finished reading "Ensaio sobre a lucidez" by Saramago
+
+** 2024-02-14
 - Writing is hard (haven't actually written any blog post)
 - On BSC I am working with loop optimisation
 - Finished the book I was reading from Silvia Federici
 - Currently reading "Ensaio sobre a lucidez" by Saramago
-
-#+caption: Once again me
-#+attr_html: :width
-[[./images/gafanhotoDither.png]]
