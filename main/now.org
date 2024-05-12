@@ -2,11 +2,11 @@
 #+startup: fold latexpreview inlineimages
 
 * /now
-** 2024-05-10
 #+caption: Once again me
-#+attr_html: :width
+#+attr_html: :clear: both
 [[./images/gafanhotoDither.png]]
 
+** 2024-05-10
 Currently:
 - Writing is still hard... need a better way to motivate myself
 - Doing some stats on the loop optimization pass I have been working on.
