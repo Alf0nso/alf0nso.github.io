@@ -195,7 +195,7 @@ figure {
     clear: both;
     display: inline-table;
     width: fit-content;
-    float: left;
+    float: right;
 }
 
 figcaption::before {
