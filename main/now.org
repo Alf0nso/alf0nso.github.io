@@ -6,8 +6,15 @@
 #+attr_html: :clear: both
 [[./images/gafanhotoDither.png]]
 
-** 2024-05-10
+** 2024-07-31
 Currently:
+- My online presence is on hold while I search for a place in Barcelona
+- Moved out of Salamanca :'(
+- Still on loops and things are performing well.. (until now)
+- Hylics is kind of in standby, but want to go back to the game.
+- Dropped Emma's book for now to read "The Hundred Years' War on Palestine"
+
+** 2024-05-10
 - Writing is still hard... need a better way to motivate myself
 - Doing some stats on the loop optimization pass I have been working on.
 - Currently playing Hylics (really, really good game)
@@ -19,3 +26,4 @@ Currently:
 - On BSC I am working with loop optimisation
 - Finished the book I was reading from Silvia Federici
 - Currently reading "Ensaio sobre a lucidez" by Saramago
+
