@@ -16,11 +16,3 @@ According to the [[https://ghostze.ro/now/][now page]] of [[https://ghostze.ro/a
 started by [[https://sive.rs/nowff][Derek Sivers]]. It is quite a simple concept, a page where one
 writes what is doing now. I will try to update it as frequently as I
 can. My now page is: [[./now.html][now]]
-
-** Things I am part of
-I tend to join myself into too many projects, currently besides my
-normal day job I am:
-
-- Staff/admin and member of [[https://devpt.co/][DevPT]]
-- Member of [[https://rggd.gitlab.io/members.html][RUGGED]]
-- member of a cooperative called Axónio (currently under development)

@@ -19,3 +19,10 @@ If you want to know what I am up to currently you can access my
 #+attr_html: :width 150px
 [[./images/butterfly.svg]]
 
+** Currently part of
+I create and help maintain projects... sometimes I also abandon them... Currently, and besides my normal day job, I am:
+
+- Staff/admin and member of [[https://devpt.co/][DevPT]]
+- Member of [[https://rggd.gitlab.io/members.html][RUGGED]]
+- Member of a cooperative called Axónio (currently under development)
+- Member of the [[https://af2c.org/][Anarchist Federation of the Cyber Communes]]
