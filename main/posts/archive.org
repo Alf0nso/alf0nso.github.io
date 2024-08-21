@@ -6,10 +6,16 @@
 #+attr_html: :width 240px
 [[./images/ditheredOwl.png]]
 
-I really enjoy to write and share the things I create. This space is
-intended for that! Right now is quite empty... Writing takes time and I
-procrastinate a lot... But with time I hope I will be able to obligate
-myself to write down my thoughts, ideas and discoveries... I hope...
+The archive is just a place where I will append all things that morph
+at a faster pace. Both the contents and structure of this page can
+change in quite unexpected ways... or not... it really depends overall
+on what I do with this website in foreseen future.
+
+** /now
+According to the [[https://ghostze.ro/now/][now page]] of [[https://ghostze.ro/about/][ghostze]] the «now» movement has been
+started by [[https://sive.rs/nowff][Derek Sivers]]. It is quite a simple concept, a page where one
+writes what is doing now. I will try to update it as frequently as I
+can. My now page is: [[./now.html][now]]
 
 ** Things I am part of
 I tend to join myself into too many projects, currently besides my
