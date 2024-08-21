@@ -3,8 +3,6 @@ html, body {
     font-family: serif;
 }
 
-img 
-
 li::marker { content: '\2294  '; }
 li { font-size: 1.2em; }
 
