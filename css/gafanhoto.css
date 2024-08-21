@@ -3,7 +3,7 @@ html, body {
     font-family: serif;
 }
 
-a { text-decoration: none; }
+img 
 
 li::marker { content: '\2294  '; }
 li { font-size: 1.2em; }
@@ -40,58 +40,9 @@ li { font-size: 1.2em; }
 
 .Main a {
     color: black;
-    transition: all .5s;
-}
-
-.Main a:hover {
-    background: black;
-    color: white;
-}
-
-.Main p a:hover::before {
-    background: white;
-    color: black;
-}
-
-.Main p a:hover::after {
-    background: white;
-    color: black;
-}
-
-.Main p a::before {
-    content: "{";
-    background: white;
-    color: black;
-}
-
-.Main p a::after {
-    content: "}";
-    background: white;
-    color: black;
 }
 
 /* --------------------------  */
-.Main li a:hover::before {
-    background: white;
-    color: black;
-}
-
-.Main li a:hover::after {
-    background: white;
-    color: black;
-}
-
-.Main li a::before {
-    content: "{";
-    background: white;
-    color: black;
-}
-
-.Main li a::after {
-    content: "}";
-    background: white;
-    color: black;
-}
 
 .Main h1 {
     clear: both;
@@ -119,12 +70,7 @@ li { font-size: 1.2em; }
 
 .Footer-Text a {
     color: black;
-    transition: all .5s;
-}
-
-.Footer-Text a:hover {
-    color: #000; /* Fallback for older browsers */
-    color: rgba(0, 0, 0, 0.5);
+    text-decoration: none;
 }
 /* -------------------------- */
 
