@@ -4,7 +4,7 @@ html, body {
 }
 
 li::marker { content: '\2294  '; }
-li { font-size: 1.2em; }
+li { font-size: 1.4em; }
 
 /* General description of the page.
    The whole website follows a very typical
