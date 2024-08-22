@@ -20,7 +20,7 @@ If you want to know what I am up to currently you can access my
 [[./images/butterfly.svg]]
 
 ** Currently part of
-I create and help maintain projects... sometimes I also abandon them... Currently, and besides my normal day job, I am:
+I create and help maintain projects... Currently, and besides my normal day job, I am:
 
 - Staff/admin and member of [[https://devpt.co/][DevPT]]
 - Member of [[https://rggd.gitlab.io/members.html][RUGGED]]
