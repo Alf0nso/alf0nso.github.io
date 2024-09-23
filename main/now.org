@@ -4,7 +4,7 @@
 * /now
 #+caption: Once again me
 #+attr_html: :clear: both
-[[./images/gafanhotoDither.png]]
+[[./images/myself/me_with_a_mask.png]]
 
 ** 2024-08-25
 Currently:
