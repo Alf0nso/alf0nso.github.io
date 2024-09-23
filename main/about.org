@@ -3,16 +3,15 @@
 
 * About Me
 #+caption: Me, Myself and I
-#+attr_html: :width 240px
-[[./images/cara10-whitebg-dither.png]]
+#+attr_html: :width 400px
+[[./images/myself/my_face.png]]
 
 Not that my life has anything out of the ordinary, but if curiosity
 brought you to this website then I might as well give you some
 information about me. The dithered image present on this page is me.
-More specifically me on 15 of November of 2022. I tend to change the
+More specifically me on 18 of May of 2024. I tend to change the
 way I present myself quite a lot so if right now I do not look like
-that, don't be surprised. The image here was transformed using the a
-specific error-diffusion algorithm called Floyd–Steinberg.
+that, don't be surprised. The image here was transformed using the error-diffusion algorithm Floyd–Steinberg.
 
 ** Academic
 I attended [[https://colegiodestomas.com/en/][Colégio de S.Tomás]] from 1st year of school to the last day

@@ -21,6 +21,7 @@ config = defaultConfiguration
          { destinationDirectory = "docs"
          , previewPort          = 5000 }
 -- --------------------------------------
+
 postCtx :: Context String
 postCtx = dateField "published" "%B %e, %Y"
           <> defaultContext
@@ -32,8 +33,7 @@ posts = listField "posts" postCtx $
 
 archiveCtx :: Context String
 archiveCtx = posts
-             <> defaultContext
-             
+             <> defaultContext             
 -- --------------------------------------
 
 {- Include MathJax in the pandoc options so it is possible
@@ -54,7 +54,6 @@ grassBiblioCompiler = do
 grassCompiler :: Compiler (Item String)
 grassCompiler = pandocBiblioCompiler "bib/acm.csl" "bib/global.bib"
 
-
 {- Used to process the main contents of the site. -}
 baseFolderAndHtml :: Routes
 baseFolderAndHtml =
@@ -73,13 +72,12 @@ removeMainFolder path =
 -- the site generator will not publish it/consider it
 filterDrafts :: Metadata -> Bool
 filterDrafts meta = maybe True (=="false") $ lookupString "draft" meta
-
 ------------------------------------------------------------------------
+
 buildSite :: IO ()
 buildSite = hakyllWith config $ do
   match "bib/global.bib" $ compile biblioCompiler
-  match "bib/acm.csl" $ compile cslCompiler
-  
+  match "bib/acm.csl" $ compile cslCompiler  
   match "templates/*" $ compile templateBodyCompiler
 
   match "css/*" $ do
@@ -88,6 +86,22 @@ buildSite = hakyllWith config $ do
 
   match "main/images/*" $ do
     route   $ removeMainFolder "images/"
+    compile copyFileCompiler
+
+  match "main/images/books/*" $ do
+    route   $ removeMainFolder "images/books/"
+    compile copyFileCompiler
+
+  match "main/images/myself/*" $ do
+    route   $ removeMainFolder "images/myself/"
+    compile copyFileCompiler
+
+  match "main/images/animals/*" $ do
+    route   $ removeMainFolder "images/animals/"
+    compile copyFileCompiler
+
+  match "main/images/icons/*" $ do
+    route   $ removeMainFolder "images/icons/"
     compile copyFileCompiler
 
   {- moving pdfs and extra info into a docs folder-}
@@ -124,6 +138,13 @@ buildSite = hakyllWith config $ do
       >>= loadAndApplyTemplate "templates/post.html"    postCtx
       >>= loadAndApplyTemplate "templates/default.html" postCtx
       >>= relativizeUrls
+
+  matchMetadata "main/posts/pt/*" filterDrafts $ do
+   route     baseFolderAndHtml
+   compile $ grassCompiler
+     >>= loadAndApplyTemplate "templates/post.html"    postCtx
+     >>= loadAndApplyTemplate "templates/default.html" postCtx
+     >>= relativizeUrls
 
 main :: IO ()
 main = buildSite

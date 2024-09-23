@@ -6,14 +6,15 @@
 #+attr_html: :clear: both
 [[./images/gafanhotoDither.png]]
 
-** 2024-07-31
+** 2024-08-25
 Currently:
+- Currently I have a stable place to sleep and live (for now at least).
+** 2024-07-31
 - My online presence is on hold while I search for a place in Barcelona.
 - Moved out of Salamanca... feelings of nostalgia are mainstream.
 - Still on loops and things are performing well.. (until now).
 - Hylics is kind of in standby, but want to go back to the game.
-- Dropped Emma's book for now to read "The Hundred Years' War on
-  Palestine".
+- Dropped Emma's book for now to read "The Hundred Years' War on   Palestine".
 
 ** 2024-05-10
 - Writing is still hard... need a better way to motivate myself.
