@@ -3,7 +3,7 @@
 
 * Archive
 #+caption: [[https://en.wikipedia.org/wiki/Owl][Owl]]
-#+attr_html: :width 240px
+#+attr_html: :width 300px
 [[./images/animals/owl.png]]
 
 The archive is just a place where I will append all things that morph
