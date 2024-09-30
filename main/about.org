@@ -2,7 +2,7 @@
 #+startup: fold latexpreview inlineimages
 
 * About Me
-#+caption: Me, Myself and I
+#+caption: Me (Afonso Rafael)
 #+attr_html: :width 400px
 [[./images/myself/my_face.png]]
 
