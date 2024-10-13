@@ -84,24 +84,8 @@ buildSite = hakyllWith config $ do
     route   idRoute
     compile compressCssCompiler
 
-  match "main/images/*" $ do
-    route   $ removeMainFolder "images/"
-    compile copyFileCompiler
-
-  match "main/images/books/*" $ do
-    route   $ removeMainFolder "images/books/"
-    compile copyFileCompiler
-
-  match "main/images/myself/*" $ do
-    route   $ removeMainFolder "images/myself/"
-    compile copyFileCompiler
-
-  match "main/images/animals/*" $ do
-    route   $ removeMainFolder "images/animals/"
-    compile copyFileCompiler
-
-  match "main/images/icons/*" $ do
-    route   $ removeMainFolder "images/icons/"
+  match ("main/images/**.png" .||. "main/images/**.svg") $ do
+    route   $ gsubRoute "main/" (const "")
     compile copyFileCompiler
 
   {- moving pdfs and extra info into a docs folder-}
