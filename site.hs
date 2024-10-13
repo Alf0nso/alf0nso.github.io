@@ -64,9 +64,12 @@ folderAndHtml path =
     customRoute $
     (++) path . takeFileName . (`replaceExtension` "html") . toFilePath
 
-removeMainFolder :: FilePath -> Routes
-removeMainFolder path =
+switchMainFolderFor :: FilePath -> Routes
+switchMainFolderFor path =
   customRoute $ (++) path . takeFileName . toFilePath
+
+removeMainFolder :: Routes
+removeMainFolder = gsubRoute "main/" (const "")
 
 -- If there is a draft field and it has a value other than false, then
 -- the site generator will not publish it/consider it
@@ -85,16 +88,16 @@ buildSite = hakyllWith config $ do
     compile compressCssCompiler
 
   match ("main/images/**.png" .||. "main/images/**.svg") $ do
-    route   $ gsubRoute "main/" (const "")
+    route   $ removeMainFolder
     compile copyFileCompiler
 
   {- moving pdfs and extra info into a docs folder-}
   match "main/extra/*" $ do
-    route   $ removeMainFolder "docs/"
+    route   $ switchMainFolderFor "docs/"
     compile copyFileCompiler
 
   match "main/js/*" $ do
-    route   $ removeMainFolder "js/"
+    route   $ removeMainFolder
     compile copyFileCompiler
 
   match "main/*" $ do
