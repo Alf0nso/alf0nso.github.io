@@ -6,9 +6,21 @@
 #+attr_html: :clear: both
 [[./images/myself/me_with_a_mask.png]]
 
+Currently (2024-10-22):
+- Life is starting to look more like life
+- Currently "homenagem à catalunha" by Orwell
+- My partner bought me Miyoo mini+ which made me really happy
+  
+* Previously
+#+caption: Bruxa
+#+attr_html: :width 200px
+ [[./images/misc/bruxa.png]]
+
 ** 2024-08-25
-Currently:
-- Currently I have a stable place to sleep and live (for now at least).
+- Finished reading Jane Austen's Persuasion.
+- Found a stable place to sleep and live (for now at least).
+- Finally managed to rest properly and recover strength.
+
 ** 2024-07-31
 - My online presence is on hold while I search for a place in Barcelona.
 - Moved out of Salamanca... feelings of nostalgia are mainstream.
@@ -19,13 +31,13 @@ Currently:
 ** 2024-05-10
 - Writing is still hard... need a better way to motivate myself.
 - Doing some stats on the loop optimization pass I have been working on.
-- Currently playing Hylics (really, really good game).
-- Currently reading "Feminism and anarchism" by Emma Goldman.
+- *Currently* playing Hylics (really, really good game).
+- *Currently* reading "Feminism and anarchism" by Emma Goldman.
 - Finished reading "Ensaio sobre a lucidez" by Saramago.
 
 ** 2024-02-14
 - Writing is hard (haven't actually written any blog post).
 - On BSC I am working with loop optimisation.
 - Finished the book I was reading from Silvia Federici.
-- Currently reading "Ensaio sobre a lucidez" by Saramago.
+- *Currently* reading "Ensaio sobre a lucidez" by Saramago.
 
