@@ -3,7 +3,7 @@ html, body {
     font-family: serif;
 }
 
-li::marker { content: '\2294  '; }
+/* li::marker { content: '\2192  '; } */
 li { font-size: 1.4em; }
 
 /* General description of the page.
@@ -176,6 +176,8 @@ figcaption {
 
 	gap: 10px
     }
+
+    li { font-size: 1.2em; }
 
     /* Main section after reduction */
     .Main img {
