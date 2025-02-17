@@ -12,3 +12,8 @@ TAGS
 
 # Hakyll Cache
 _cache/
+
+# CV (latex files)
+CV/*.aux
+CV/*.log
+CV/*.out
