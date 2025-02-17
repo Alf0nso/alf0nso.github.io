@@ -2,17 +2,16 @@
 #+startup: fold latexpreview inlineimages
 
 * Welcome to my corner!
-On the Internet I am generally known as Grasshopper, or «Gafanhoto»
-(Portuguese). I have been roaming around the [[https://en.wikipedia.org/wiki/Iberian_Peninsula][Iberian Peninsula]], mainly
-between Lisbon, Salamanca, Barcelona and sometimes the north of
-Portugal. I am currently working on the [[https://llvm.org/][LLVM Compiler Infrastructure]] in
-the compiler's team of the [[https://www.bsc.es/pinto-cardoso-rafael-afonso][Barcelona Supercomputing Center]], working 
-under the supervision of the spectacular [[https://rofi.roger-ferrer.org/][Roger Ibáñez]]. Previously I was 
-interning under the amazing [[https://nikivazou.github.io/][Niki Vazou]] on [[https://software.imdea.org/people/alumni/][IMDEA Software]], working on
-[[https://github.com/ucsd-progsys/liquidhaskell][Liquid Haskell]]. My heart is set on compilers, programming languages and 
-obviously music! In case you want to contact me you have my
-[[./contact.html][contact page]], or you can find me on discord on [[https://discord.gg/t2y6tYbTgH][DevPT]].
-If you want to know what I am up to currently you can access my
+On the Internet I am generally known as Grasshopper, or «Gafanhoto».
+I have been roaming around the [[https://en.wikipedia.org/wiki/Iberian_Peninsula][Iberian Peninsula]], mainly between Lisbon,
+Salamanca, Barcelona and sometimes the north of Portugal. I am currently
+working on the [[https://llvm.org/][LLVM Compiler Infrastructure]] in the compiler's team of the
+[[https://www.bsc.es/pinto-cardoso-rafael-afonso][Barcelona Supercomputing Center]], working under the supervision of the
+spectacular [[https://rofi.roger-ferrer.org/][Roger Ibáñez]]. Previously I was interning under the amazing
+[[https://nikivazou.github.io/][Niki Vazou]] on [[https://software.imdea.org/people/alumni/][IMDEA Software]], working on [[https://github.com/ucsd-progsys/liquidhaskell][Liquid Haskell]]. My heart is
+set on compilers, programming languages and music! In case you want to
+contact me you have my [[./contact.html][contact page]], or you can find me on discord on
+[[https://discord.gg/t2y6tYbTgH][DevPT]]. If you want to know what I am up to currently you can access my
 [[./now.html][/now]] page.
 
 #+caption: [[https://en.wikipedia.org/wiki/Butterfly][A Butterfly]]
@@ -24,5 +23,4 @@ I create and help maintain projects... Currently, and besides my normal day job,
 
 - Staff/admin and member of [[https://devpt.co/][DevPT]]
 - Member of [[https://rggd.gitlab.io/members.html][RUGGED]]
-- Member of a cooperative called Axónio (currently under development)
 - Member of the [[https://af2c.org/][Anarchist Federation of the Cyber Communes]]
