@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Introdução à Programação</title>
+<meta name="author" content="Afonso Rafael"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/solarized.css" id="theme"/>
+
+<link rel="stylesheet" href="./style.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Introdução à Programação</h1><p class="subtitle"></p>
+<h2 class="author">Afonso Rafael</h2><p class="date">Created: 2025-04-05 sáb 23:01</p>
+</section>
+
+<div id="org798e14c" class="figure">
+<p><img src="grasshopper.png" alt="grasshopper.png" width="100px" style="float:left;" />
+</p>
+</div>
+<section>
+<section id="slide-org3d043b3">
+<h2 id="org3d043b3">Nota importante! Muito importante!</h2>
+<p>
+Alguns assuntos aqui falados por mim poderão ser <span class="underline">simplificações da realidade
+para efeitos de brevidade</span>. Toda a partilha da informação tem sempre de ser
+completada por uma <span class="underline">receção critica da parte do ouvinte</span>. Se neste processo
+critico se descobrir que alguma coisa partilhada por mim está errada ou
+menos correta, por favor informem.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org0193aed">
+<h2 id="org0193aed">Computador, linguagens e instruções</h2>
+<div class="outline-text-2" id="text-org0193aed">
+</div>
+</section>
+<section id="slide-orgda8e8e5">
+<h3 id="orgda8e8e5">Olá mundo?</h3>
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim><span style="color: #5B6268;"># </span><span style="color: #5B6268;">Repetir a tradi&#231;&#227;o! A ideia de mostrar uma mensagem</span>
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">a cumprimentar adv&#233;m da necessidade de confirmar que</span>
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">tudo est&#225; corretamente configurado e a funcionar.</span>
+
+print(<span style="color: #98be65;">"ol&#225; a todos!"</span>)
+</code></pre>
+</div>
+
+<pre class="example">
+[1] "olá a todos!"
+</pre>
+</section>
+<section id="slide-org22f1653">
+<h3 id="org22f1653">História, para saber de onde vêm as coisas.</h3>
+<p>
+O <b>R</b> nasce mais ou menos em 1993 com o objetivo de ensinar estatística
+numa universidade da Nova Zelândia. É uma linguagem fortemente inspirada
+por uma outra chamada <b>S</b> desenvolvida na <span class="underline">Bell Labs</span>.
+</p>
+
+
+<div id="org5e4d7ed" class="figure">
+<p><img src="Rlogo.svg" alt="Rlogo.svg" class="org-svg" width="90px" style="float:left;" />
+</p>
+</div>
+</section>
+<section id="slide-org2bc1f8b">
+<h3 id="org2bc1f8b">Mas o que é?</h3>
+<div style="text-align: left;">
+<p>
+<span class="underline">O que é o R?</span>
+</p>
+
+<p>
+→ Uma linguagem de programação interpretada, de múltiplos paradigmas!
+</p>
+
+<p>
+<span class="underline">Uma linguagem de programação? paradigmas?</span>
+</p>
+
+<p>
+→ Uma linguagem para falar com uma máquina!
+</p>
+
+<p>
+<span class="underline">Não posso usar o português?</span>
+</p>
+
+<p>
+→ Nem por isso&#x2026;
+</p>
+</div>
+</section>
+<section id="slide-org9485572">
+<h3 id="org9485572">Linguagem natural e linguagem formal?</h3>
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim><span style="color: #5B6268;"># </span><span style="color: #5B6268;">De uma forma pragm&#225;tica, as linguagens naturais t&#234;m como uso</span>
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">a comunica&#231;&#227;o entre pessoas. As linguagens formais e/ou de</span>
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">programa&#231;&#227;o s&#227;o linguagens para comunicar com m&#225;quinas...</span>
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">e por isso "mais ou menos" livres de contexto...</span>
+
+carro_do_afonso <span style="color: #a9a1e1;">&lt;-</span> list(cor=<span style="color: #98be65;">"Vermelho"</span>, marca=<span style="color: #98be65;">"Sado"</span>)
+print(carro_do_afonso$cor)
+</code></pre>
+</div>
+
+<pre class="example">
+[1] "Vermelho"
+</pre>
+</section>
+<section id="slide-orga908d17">
+<h3 id="orga908d17">Uma linguagem tipo 2&#x2026; Chomsky.. o quê?</h3>
+<div style="float: right; width: 70%;text-align:left">
+<p>
+Pois sim, este senhor aparece em todas os lados e em todos os <span class="underline">contextos</span>. Neste
+caso é importante pois, no seu estudo da língua, ajudou também na criação
+"gramatical" das linguagens de programação&#x2026;
+</p>
+</div>
+
+<div style="float: left; width: 30%;">
+
+<div id="orgd64d7cb" class="figure">
+<p><img src="chomsky_dither.png" alt="chomsky_dither.png" width="240px" style="float:left;" />
+</p>
+</div>
+</div>
+</section>
+<section id="slide-orgbdf361b">
+<h3 id="orgbdf361b">Interpretado? Compilado?</h3>
+<div style="text-align: left;">
+<p>
+R é uma linguagem <span class="underline">interpretada</span> no sentido em que não é <span class="underline">compilada</span>&#x2026;
+Linguagens compiladas são traduzidas numa outra.
+</p>
+
+<p>
+Como por exemplo <b>C</b>!
+</p>
+</div>
+<div class="org-src-container">
+
+<pre  class="src src-C"   ><code trim><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;stdio.h&gt;</span>
+<span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">main</span>() {
+  printf(<span style="color: #98be65;">"ol&#225; ol&#225;!\n"</span>);
+}
+</code></pre>
+</div>
+
+<pre class="example">
+olá olá!
+</pre>
+
+
+</section>
+<section id="slide-orgbdf361b-split">
+
+<div style="text-align: left;">
+<p>
+Ou <b>Fortran</b>!
+</p>
+</div>
+<div class="org-src-container">
+
+<pre  class="src src-fortran"   ><code trim><span style="color: #51afef;">program</span> <span style="color: #c678dd;">ola</span>
+  <span style="color: #51afef;">print</span> *, <span style="color: #98be65;">'ol&#225;, ol&#225;!'</span>
+<span style="color: #51afef;">end</span> <span style="color: #51afef;">program</span> <span style="color: #c678dd;">ola</span>
+</code></pre>
+</div>
+
+<pre class="example">
+olá, olá!
+</pre>
+</section>
+<section id="slide-org4d294e8">
+<h3 id="org4d294e8">Um binário!</h3>
+<p>
+Muitas vezes compilado significa de forma coloquial "<span class="underline">traduzido para zeros
+e uns</span>". <b>C</b> e <b>Fortran</b> são linguagens que compilamos para <span class="underline">binários</span>!
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-shell"   ><code trim>gcc ./src/ola.c -o ./src/ola.exe
+xxd -b ./src/ola.exe | head -n3 | cut -d<span style="color: #98be65;">' '</span> -f2-7
+</code></pre>
+</div>
+
+<pre class="example">
+01111111 01000101 01001100 01000110 00000010 00000001
+00000001 00000000 00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000 00000011 00000000
+</pre>
+</section>
+<section id="slide-orgccef210">
+<h3 id="orgccef210">No computador só há zeros e uns?</h3>
+<p>
+Efetivamente as máquinas que usamos tendem a preferir digerir informação
+em formato binário. Por exemplo as imagens em formato <b>png</b>!
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell"   ><code trim>xxd -b grasshopper.png | head -n1 | cut -d<span style="color: #98be65;">' '</span> -f2-
+</code></pre>
+</div>
+
+<pre class="example">
+10001001 01010000 01001110 01000111 00001101 00001010  .PNG..
+</pre>
+</section>
+<section id="slide-orge669c0a">
+<h3 id="orge669c0a">Mas e o R?</h3>
+<p>
+O <b>R</b> como disse é <span class="underline">interpretada</span>, em vez de ser traduzido para binário,
+as instruções do <b>R</b> são lidas e executadas diretamente pelo seu
+interpretador!
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-shell"   ><code trim>xxd -b /usr/lib/R/bin/Rscript | head -n1 | cut -d<span style="color: #98be65;">' '</span> -f2-
+</code></pre>
+</div>
+
+<pre class="example">
+01111111 01000101 01001100 01000110 00000010 00000001  .ELF..
+</pre>
+
+
+<p>
+Efetivamente podemos validar que o interpretador do <b>R</b> é um interpretador&#x2026;
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell"   ><code trim>file /usr/lib/R/bin/Rscript | cut -d<span style="color: #98be65;">' '</span> -f 2,3,6,13
+</code></pre>
+</div>
+
+<pre class="example">
+ELF 64-bit executable, interpreter
+</pre>
+</section>
+<section id="slide-org98e9b5a">
+<h3 id="org98e9b5a">Múltiplos paradigmas?</h3>
+<div style="text-align: left;">
+<p>
+Existem muitos, e o que cada um significa, ou não, é um assunto
+bastante debatido&#x2026;
+</p>
+
+<p>
+Podemos no entanto falar de dois importantes:
+</p>
+<ul>
+<li><span class="underline">Imperativo</span></li>
+<li><span class="underline">Declarativo</span></li>
+
+</ul>
+</div>
+</section>
+<section id="slide-orgf0d618e">
+<h3 id="orgf0d618e">Imperativo?</h3>
+<p>
+Imperativo no sentido em que temos instruções que alteram o estado do programa.
+Uma espécie de <span class="underline">receita que o computador segue um por um</span>.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>numbers <span style="color: #a9a1e1;">&lt;-</span> c(1, 2, 3, 4, 5)
+squared_numbers <span style="color: #a9a1e1;">&lt;-</span> numeric(length(numbers))
+
+<span style="color: #51afef;">for</span> (i <span style="color: #51afef;">in</span> 1:length(numbers)) {
+  squared_numbers[i] <span style="color: #a9a1e1;">&lt;-</span> numbers[i]^2
+}
+
+print(squared_numbers)
+</code></pre>
+</div>
+
+<pre class="example">
+[1]  1  4  9 16 25
+</pre>
+</section>
+<section id="slide-org9969701">
+<h3 id="org9969701">Declarativo?</h3>
+<p>
+No sentido em que dizemos ao computador o que gostávamos de observar
+como resultado final mas <span class="underline">sem nos importarmos com o "como chegar ao
+resultado final"</span>.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>print(c(1:5)^2)
+</code></pre>
+</div>
+
+<pre class="example">
+[1]  1  4  9 16 25
+</pre>
+</section>
+<section id="slide-org6cabdb2">
+<h3 id="org6cabdb2">Imperativo no Fortran por exemplo</h3>
+<p>
+Fortran também tem imperativo&#x2026;
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-fortran"   ><code trim><span style="color: #51afef;">program</span> <span style="color: #c678dd;">imperative_example</span>
+  <span style="color: #ECBE7B;">implicit none</span>
+  <span style="color: #ECBE7B;">integer</span>, <span style="color: #ECBE7B;">parameter</span> :: n = 5
+  <span style="color: #ECBE7B;">integer</span> :: i
+  <span style="color: #ECBE7B;">integer</span> :: numbers(n) = (/1, 2, 3, 4, 5/)
+  <span style="color: #ECBE7B;">integer</span> :: squared_numbers(n)
+
+  <span style="color: #51afef;">do</span> i = 1, n
+    squared_numbers(i) = numbers(i) ** 2
+  <span style="color: #51afef;">end</span> <span style="color: #51afef;">do</span>
+
+  <span style="color: #51afef;">write</span>(*, <span style="color: #98be65;">'(5I3)'</span>) squared_numbers
+
+<span style="color: #51afef;">end</span> <span style="color: #51afef;">program</span> <span style="color: #c678dd;">imperative_example</span>
+</code></pre>
+</div>
+
+<pre class="example">
+1  4  9 16 25
+</pre>
+</section>
+<section id="slide-org65e6ac9">
+<h3 id="org65e6ac9">Declarativo no Fortran por exemplo</h3>
+<p>
+E declarativo&#x2026;
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-fortran"   ><code trim><span style="color: #51afef;">program</span> <span style="color: #c678dd;">declarative_example</span>
+  <span style="color: #ECBE7B;">implicit none</span>
+  <span style="color: #ECBE7B;">integer</span> :: i
+  <span style="color: #ECBE7B;">integer</span>, <span style="color: #ECBE7B;">parameter</span> :: numbers(5) = (/ (i ** 2, i=1,5) /)
+  <span style="color: #51afef;">write</span>(*, <span style="color: #98be65;">'(5I3)'</span>) numbers
+<span style="color: #51afef;">end</span> <span style="color: #51afef;">program</span> <span style="color: #c678dd;">declarative_example</span>
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgc7538ef">
+<h2 id="orgc7538ef">Tipos básicos no R</h2>
+<div class="outline-text-2" id="text-orgc7538ef">
+</div>
+</section>
+<section id="slide-orgd3289a9">
+<h3 id="orgd3289a9">Tipos de coisas</h3>
+<div style="text-align: left;">
+<p>
+No <b>R</b> temos seis tipos de dados "básicos":
+</p>
+<ul>
+<li><b>Numéricos</b> (numeric)</li>
+<li><b>Inteiros</b> (integer)</li>
+<li>Complexos (Complex)</li>
+<li><b>Lógicos</b> (Logic)</li>
+<li><b>"Letras"</b> (Character)</li>
+<li>Bits.. mais ou menos&#x2026;</li>
+
+</ul>
+</div>
+</section>
+<section id="slide-org78ec759">
+<h3 id="org78ec759">Os numéricos?</h3>
+<p>
+Números são provavelmente os mais usados&#x2026;
+E especificamente "numéricos"
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>typeof(2); typeof(2.2)
+typeof(<span style="color: #ECBE7B;">Inf</span>) <span style="color: #5B6268;"># </span><span style="color: #5B6268;">Infinito</span>
+typeof(<span style="color: #ECBE7B;">NaN</span>) <span style="color: #5B6268;"># </span><span style="color: #5B6268;">Not a Number</span>
+</code></pre>
+</div>
+
+<pre class="example">
+[1] "double"
+[1] "double"
+[1] "double"
+[1] "double"
+</pre>
+</section>
+<section id="slide-org61f7265">
+<h3 id="org61f7265">E os inteiros? Não se usam?</h3>
+<p>
+Efetivamente usamos quase sempre numéricos&#x2026; Os inteiros são no entanto usados
+com funções de outras linguagens.. as chamadas FFI!
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>typeof(2L); is.integer(3); is.integer(3L)
+</code></pre>
+</div>
+
+<pre class="example">
+[1] "integer"
+[1] FALSE
+[1] TRUE
+</pre>
+</section>
+<section id="slide-org7cfe73b">
+<h3 id="org7cfe73b">O quê? Como assim de outras linguagens?</h3>
+<p>
+Sim podemos usar funções de fortran em R por exemplo!
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-fortran"   ><code trim><span style="color: #51afef;">subroutine</span> <span style="color: #c678dd;">quadrado</span>(x, result)
+  <span style="color: #ECBE7B;">implicit none</span>
+  <span style="color: #ECBE7B;">integer</span>, intent(in) :: x
+  <span style="color: #ECBE7B;">integer</span>, intent(out) :: result
+
+  result = x * x
+<span style="color: #51afef;">end</span> <span style="color: #51afef;">subroutine</span> <span style="color: #c678dd;">quadrado</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-orge294dfd">
+<h3 id="orge294dfd">Mas como?</h3>
+<div style="text-align: left;">
+<p>
+Compilando o programa de fortran de uma forma especial&#x2026;
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-shell"   ><code trim>gfortran -shared -fPIC -o src/aoquadrado.so src/aoquadrado.f90
+</code></pre>
+</div>
+
+<p>
+E importando no R!
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>dyn.load(<span style="color: #98be65;">"src/aoquadrado.so"</span>)
+result <span style="color: #a9a1e1;">&lt;-</span> .Fortran(<span style="color: #98be65;">"quadrado"</span>, as.integer(3), integer(1))
+print(result[[2]])
+</code></pre>
+</div>
+
+<pre class="example">
+[1] 9
+</pre>
+
+</div>
+</section>
+<section id="slide-org8d3c88a">
+<h3 id="org8d3c88a">Voltando aos números&#x2026; complexos!</h3>
+<p>
+Estes talvez não se usem tanto!
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>typeof(1 + 3i)
+is.complex(1 + 3i)
+</code></pre>
+</div>
+
+<pre class="example">
+[1] "complex"
+[1] TRUE
+</pre>
+</section>
+<section id="slide-org75e32fe">
+<h3 id="org75e32fe">Verdadeiros e Falsos</h3>
+<p>
+Todas as linguagens têm as suas formas de dizer verdadeiro e falso!
+</p>
+
+<p>
+<span class="underline">NA</span> embora seja também considerada lógica é normalmente algo que
+indica que falta alguma coisa.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>typeof(<span style="color: #ECBE7B;">TRUE</span>); typeof(<span style="color: #ECBE7B;">FALSE</span>); typeof(<span style="color: #ECBE7B;">NA</span>)
+is.logical(T)
+</code></pre>
+</div>
+
+<pre class="example">
+[1] "logical"
+[1] "logical"
+[1] "logical"
+[1] TRUE
+</pre>
+</section>
+<section id="slide-org5e7f660">
+<h3 id="org5e7f660">Cuidado com os F e T</h3>
+<p>
+Sim isto parece um pouco estranho&#x2026; é mais um aviso para terem cuidado!
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>F <span style="color: #a9a1e1;">&lt;-</span> T
+F
+</code></pre>
+</div>
+
+<pre class="example">
+[1] TRUE
+</pre>
+</section>
+<section id="slide-orgac3d750">
+<h3 id="orgac3d750">As letras, palavras, frases, &#x2026;</h3>
+<p>
+Os caracteres são outro tipo de dados muito utilizado!
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>typeof(<span style="color: #98be65;">"a"</span>); is.character(<span style="color: #98be65;">"a"</span>); is.character(<span style="color: #98be65;">'a'</span>)
+nchar(<span style="color: #98be65;">"palavra"</span>)
+</code></pre>
+</div>
+
+<pre class="example">
+[1] "character"
+[1] TRUE
+[1] TRUE
+[1] 7
+</pre>
+</section>
+<section id="slide-org9efeaac">
+<h3 id="org9efeaac">Os bits</h3>
+<p>
+Outro tipo de dados pouco usado&#x2026;
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>charToRaw(<span style="color: #98be65;">"palavra"</span>); typeof(charToRaw(<span style="color: #98be65;">"palavra"</span>))
+</code></pre>
+</div>
+
+<pre class="example">
+[1] 70 61 6c 61 76 72 61
+[1] "raw"
+</pre>
+</section>
+<section id="slide-org1f245a5">
+<h3 id="org1f245a5">Conversões entre tipos</h3>
+<p>
+Os dados podem ser convertidos de um lado para o outro&#x2026;
+desde que tenha algum sentido!
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>as.numeric(<span style="color: #98be65;">"1"</span>); as.numeric(<span style="color: #ECBE7B;">TRUE</span>);
+as.numeric(<span style="color: #ECBE7B;">FALSE</span>); as.character(<span style="color: #ECBE7B;">TRUE</span>)
+</code></pre>
+</div>
+
+<pre class="example">
+[1] 1
+[1] 1
+[1] 0
+[1] "TRUE"
+</pre>
+
+
+<p>
+Se não tiver muito sentido, provavelmente vão ver um <span class="underline">NA</span>&#x2026;
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>as.integer(<span style="color: #98be65;">'c'</span>)
+</code></pre>
+</div>
+
+<pre class="example">
+[1] NA
+</pre>
+</section>
+</section>
+<section>
+<section id="slide-org0148c94">
+<h2 id="org0148c94">Estruturas de dados</h2>
+<div class="outline-text-2" id="text-org0148c94">
+</div>
+</section>
+<section id="slide-org6ec08fa">
+<h3 id="org6ec08fa">De escalar a vetor</h3>
+<p>
+Um vetor em R só pode ter um tipo! Só podemos ter números,
+carateres ou valores lógicos.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>typeof(c(1:10))
+typeof(vector(mode=<span style="color: #98be65;">'character'</span>,length=10))
+typeof(vector(mode=<span style="color: #98be65;">'logical'</span>,length=10))
+</code></pre>
+</div>
+
+<pre class="example">
+[1] "integer"
+[1] "character"
+[1] "logical"
+</pre>
+</section>
+<section id="slide-org5a7a4d3">
+<h3 id="org5a7a4d3">Matrizes!</h3>
+<p>
+Outra estrutura de dados útil são as matrizes! No R a matriz é de certa
+forma apenas um vetor com dimensões.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>matrix(1:16, nrow = 4, byrow = <span style="color: #ECBE7B;">TRUE</span>)
+</code></pre>
+</div>
+
+<pre class="example">
+     [,1] [,2] [,3] [,4]
+[1,]    1    2    3    4
+[2,]    5    6    7    8
+[3,]    9   10   11   12
+[4,]   13   14   15   16
+</pre>
+</section>
+<section id="slide-org42ae9f1">
+<h3 id="org42ae9f1">As contas com elas&#x2026;</h3>
+<p>
+E claro, podemos fazer contas com matrizes!
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>m.1 <span style="color: #a9a1e1;">&lt;-</span> matrix(c(2, 0, 1, 1), nrow = 2); m.1
+m.2 <span style="color: #a9a1e1;">&lt;-</span> matrix(c(1, 1, 0, 2), nrow = 2); m.2
+m.1 <span style="color: #a9a1e1;">%*%</span> m.2
+</code></pre>
+</div>
+
+<pre class="example">
+     [,1] [,2]
+[1,]    2    1
+[2,]    0    1
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    2
+     [,1] [,2]
+[1,]    3    2
+[2,]    1    2
+</pre>
+</section>
+<section id="slide-org26a0f69">
+<h3 id="org26a0f69">E o "array"!</h3>
+<p>
+O "array" é uma matriz com dimensões tal como a matriz é um vetor com
+dimensões!
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>array(1:16, dim = c(4, 4, 2))
+</code></pre>
+</div>
+
+<pre class="example" id="org010ab70">
+, , 1
+
+     [,1] [,2] [,3] [,4]
+[1,]    1    5    9   13
+[2,]    2    6   10   14
+[3,]    3    7   11   15
+[4,]    4    8   12   16
+
+, , 2
+
+     [,1] [,2] [,3] [,4]
+[1,]    1    5    9   13
+[2,]    2    6   10   14
+[3,]    3    7   11   15
+[4,]    4    8   12   16
+
+</pre>
+</section>
+<section id="slide-orgdccbbbe">
+<h3 id="orgdccbbbe">E Listas também?</h3>
+<p>
+Em R efetivamente o "array" não é uma lista&#x2026; uma lista é uma estrutura que
+pode ter coisas de diferentes tipos!
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>list(c(<span style="color: #98be65;">"a"</span>, <span style="color: #98be65;">"b"</span>, <span style="color: #98be65;">"c"</span>),
+     c(<span style="color: #ECBE7B;">TRUE</span>, <span style="color: #ECBE7B;">TRUE</span>, <span style="color: #ECBE7B;">FALSE</span>),
+     matrix(1:6, nrow = 3))
+</code></pre>
+</div>
+
+<pre class="example" id="org7968715">
+[[1]]
+[1] "a" "b" "c"
+
+[[2]]
+[1]  TRUE  TRUE FALSE
+
+[[3]]
+     [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6
+
+</pre>
+</section>
+<section id="slide-org1b26ae9">
+<h3 id="org1b26ae9">As listas podem ter nomes!</h3>
+<p>
+Podemos distinguir os vários elementos de uma lista com nomes!
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>list(cor = c(<span style="color: #98be65;">"Vermelho"</span>, <span style="color: #98be65;">"verde"</span>), 
+     flor = c(<span style="color: #ECBE7B;">TRUE</span>, <span style="color: #ECBE7B;">FALSE</span>, <span style="color: #ECBE7B;">TRUE</span>), 
+     tempo = matrix(1:6, nrow = 3))
+</code></pre>
+</div>
+
+<pre class="example" id="org2b211b4">
+$cor
+[1] "Vermelho" "verde"   
+
+$flor
+[1]  TRUE FALSE  TRUE
+
+$tempo
+     [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6
+
+</pre>
+</section>
+</section>
+<section>
+<section id="slide-orge824d0b">
+<h2 id="orge824d0b">Dados externos</h2>
+<div class="outline-text-2" id="text-orge824d0b">
+</div>
+</section>
+<section id="slide-orge8b9642">
+<h3 id="orge8b9642">Os dados podem vir de fora</h3>
+<p>
+Obviamente que podemos importar dados de fora do R. A utilidade
+de toda esta maquinaria é também para processar coisas que
+observamos noutros sítios!
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>flowers <span style="color: #a9a1e1;">&lt;-</span> read.table(file = <span style="color: #98be65;">'flower.csv'</span>,
+                     header = <span style="color: #ECBE7B;">TRUE</span>,
+                     sep = <span style="color: #98be65;">"\t"</span>,
+                     stringsAsFactors = <span style="color: #ECBE7B;">TRUE</span>)
+head(flowers)
+</code></pre>
+</div>
+
+<pre class="example">
+treat nitrogen block height weight leafarea shootarea flowers
+1   tip   medium     1    7.5   7.62     11.7      31.9       1
+2   tip   medium     1   10.7  12.14     14.1      46.0      10
+3   tip   medium     1   11.2  12.76      7.1      66.7      10
+4   tip   medium     1   10.4   8.78     11.9      20.3       1
+5   tip   medium     1   10.4  13.58     14.5      26.9       4
+6   tip   medium     1    9.8  10.08     12.2      72.7       9
+</pre>
+</section>
+<section id="slide-org106c3f9">
+<h3 id="org106c3f9">E claro, Estatística&#x2026;</h3>
+<p>
+Podemos ver informação estatística contida nos dados que importamos!
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"   ><code trim>summary(flowers)
+</code></pre>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>

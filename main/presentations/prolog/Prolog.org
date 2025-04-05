@@ -1,0 +1,354 @@
+#+title: What Is Prolog?
+#+startup: fold latexpreview inlineimages
+#+author: Laura Herrero & Afonso Rafael
+#+reveal_extra_css: ./style.css
+#+options: author:t date:nil email:nil created:nil num:nil toc:nil
+
+* Prolog
+#+ATTR_HTML: :width 500px :align center
+[[./prologday.jpeg]]
+
+** The language
+Prolog is a language rooted in *logic*, and although there is no universal
+definition of it we can say that logic deals with "properties of" and
+"relations between":
+- Syntax
+- Semantics
+- Inference
+
+#+begin_src prolog
+  imortal(X) :- woman(X).
+  woman(eddicirca).
+  %?- imortal(X).
+  %@    X = eddicirca.
+#+end_src
+
+** Prolog is...
+Very *simple*, all _data_ is represented by _terms_ and terms are defined
+inductively. A _term_ can be:
+
+- *Variable*: X, Letter, _, ...
+- *Atomic* *terms*
+  - atom: a, at, atom, ...
+  - integer: 12, 42, ...
+  - others: 3.14, ...
+- *Compound term:* F(Term_1, ..., Term_N) which is also a term! (F is the functor name, and F/N principal functor)
+
+** What is and what is not...
+If we are unsure what something is, we can also ask prolog to help us!
+#+begin_src prolog
+  %?- integer(1). 
+  %@    true.
+
+  %?- atom(atom).
+  %@    true.
+
+  %?- atom(X).
+  %@    false.
+
+  %?- var(X).
+  %@    true.
+#+end_src
+
+** The same with compound terms...
+The same with compound terms!
+#+begin_src prolog
+  %?- functor(X, :-, 2).
+  %@    X = (_A:-_B).
+
+  %?- functor(1 + 1, F, N).
+  %@    F = (+), N = 2.
+
+  %?- f(a,g(X)) =.. [Name | Args].
+  %@    Name = f, Args = [a,g(X)].
+#+end_src
+
+** Prolog also is...
+A *declarative language*, we are concerned with stating what holds and
+less interested in how the specific implementation finds the solution...
+
+#+begin_src prolog
+  length_list([], 0).
+  length_list([_ | Ls], N1) :- length_list(Ls, N2), N1 is N2+1.
+
+  %?- length_list([a,b,c], X).
+  %@    X = 3.
+#+end_src
+
+** Very general
+We are not computing the length of a list, we are defining a relation! With this relation we can also ask for a list of 3 elements or for any answer that satisfies...
+#+begin_src prolog
+  %?- length_list(Ls, 3). 
+  %@ Ls = [_, _, _] .
+
+  %?- length_list(Ls, X).
+  %@ Ls = [],
+  %@ X = 0 ;
+  %@ Ls = [_],
+  %@ X = 1 ;
+  %@ Ls = [_, _],
+  %@ X = 2 ;
+  %@ Ls = [_, _, _],
+  %@ X = 3 .
+#+end_src
+
+** Functional?
+In the category of *declarative* languages we have functional programming
+languages and logic programming languages. A function is a restricted form of a relation and functional programming can be regarded as a restricted form of logical programming.
+
+#+begin_src prolog
+  % Peano numbers
+  natnum(0).
+  natnum(s(X)) :- natnum(X).
+
+  %?- natnum(X). 
+  %@ X = 0 ;
+  %@ X = s(0) ;
+  %@ X = s(s(0)) ;
+  %@ X = s(s(s(0))) .
+#+end_src
+
+** Versatile
+Prolog can also be used to write big applications related to the web,
+optimization, verification, etc... The piece of code bellow is a simple
+http call.
+#+begin_src prolog
+  :- use_module(library(http/http_open)).
+  :- use_module(library(lists)).
+  %?- http_open("https://news.ycombinator.com/", Stream, []),
+  %   length(Cs, 20),
+  %   maplist(get_char(Stream), Cs),
+  %   string_chars(Str, Cs).
+  %@ Stream = <stream>(0x55fe18d3d580,0x55fe18d3d6e0),
+  %@ Cs = [<, h, t, m, l, ' ', l, a, n|...],
+  %@ Str = "<html lang=\"en\" op=\""".
+#+end_src
+
+** Another Example
+It can also be used for applications related to security. Since in
+prolog a character is also an atom, we have a situation where data is
+also code. This allows for very good data manipulation capabilities
+which is very useful when writing cryptography protocols.
+
+#+begin_src prolog
+:- use_module(library(crypto)).
+%?- Message = "Ola!!",
+%   ed25519_new_keypair(Pair),
+%   ed25519_sign(Pair, Message, Signature, []).
+
+%@ Message = "Ola!!",
+%@ Pair = "0Q\x2\\x1\\x1\0\x5\\x6\\x3\+ep\x4\\"\x4\ \x4\xÛ ...",
+%@ Signature = "fd687c9b6611abe6fb2 ...".
+#+end_src
+
+* How to program in prolog?
+A Prolog program is a set of predicates that define relations between
+their arguments. There is only one single language element, a *clause*:
+
+#+begin_src prolog
+  head :- body.
+#+end_src
+
+This means:
+#+begin_quote
+*if* _body_ holds, *then* _head_ holds.
+#+end_quote
+
+If the head always holds the body is not necessary!
+
+** Arithmetic not included
+Horn clauses, which is the subset of first order logic in which prolog
+happens, does not come with arithmetic! To address this, prolog has an
+impure predicate built-in called: *is/2* which requires the second
+element to be instantiated...
+
+#+begin_src prolog
+  factorial(0,1).
+  factorial(N,F) :- N>0, N1 is N-1, factorial(N1,F1), F is N*F1.
+
+  %?- factorial(23, F).
+  %@    F = 25852016738884976640000
+  %@ ;  false.
+#+end_src
+
+** The problem with is, is...
+The *is/2* predicate is not reversible and does not really express an
+actual relation! To get trough this there are libraries that extend
+logic programming over multiple domains. CLP(ℤ) extends logic
+programming to integers allowing for relations over this domain.
+
+#+begin_src prolog
+  :- use_module(library(clpz)).
+  fac(0, 1).
+  fac(N, F) :- N #> 0, N1 #= N - 1, F #= N * F1, fac(N1, F1).
+
+  %?- fac(N, 25852016738884976640000).
+  %@    N = 23
+  %@ ;  false.
+#+end_src
+
+** Another special predicate is!
+Yes, ! is also a predicate, and a special one... Like *is/2*, it is also
+impure and basically allows you to control the flow of computation.
+
+#+begin_src prolog
+  sumNums([],0).
+  sumNums([X|Xs],Z) :- number(X), !, sumNums(Xs,Y), Z is X+Y.
+  sumNums([_|Xs],Z) :- sumNums(Xs,Z).
+
+  %?- sumNums([1,2,a,3], X).
+  %@    X = 6.
+#+end_src
+
+The *!/0* predicate makes it impossible to flow from _right_ to _left_. In
+this example, if the *X* is a number then the right side also holds, and
+if not it jumps directly to the last line.
+
+** If ∧ is, then ∨ is;
+Until now anytime we wrote the *,/2* we were specifying a logical
+conjunction (*and*) but what about the logical disjunction? In prolog the
+predicate that represents (*or*) is *;/2*.
+#+begin_src prolog
+  %?- true, false.
+  %@    false.
+
+  %?- true; false.
+  %@    true
+  %@ ;  false.
+#+end_src
+
+It is important to note that one can also represent a disjunction in
+prolog with two separate predicates!
+
+** Another way to write the same...
+Using the *!/0* predicate one can easily write the _if then else_ structure!
+But the way it presents is not the prettiest... 
+#+begin_src prolog
+  % ifThenElse(X) :- If(X), !, Then(X).
+  % ifThenElse(X) :- Else(X).
+#+end_src
+
+We can substitute the *!/0* predicate with *→/2* which works as (If → Then)
+and with the disjunction we have:
+#+begin_src prolog
+  % ifThenElse(X) :- If(X) -> Then(X); Else(X).
+#+end_src
+
+** Previous example but now prettier!
+The example we had previously can clearly be re-written with the new
+predicates!
+#+begin_src prolog
+  %Old version
+  sumNums([],0).
+  sumNums([X|Xs],Z) :- number(X), !, sumNums(Xs,Y), Z is X+Y.
+  sumNums([_|Xs],Z) :- sumNums(Xs,Z).
+
+  % New version
+  sumNums([],0).
+  sumNums([X|Xs],Z) :- number(X) -> sumNums(Xs,Y),
+	  Z is X+Y; sumNums(Xs,Z).
+
+  %?- sumNums([1,h,o,l,2,a,3], X).
+  %@    X = 6.
+#+end_src
+
+** Higher order predicates!
+In functional programming, functions are first class citizens and this
+means we can have higher order functions! Higher order functions are
+functions that do at least one of the following:
+
+#+begin_quote
+1. Take one or more functions as arguments.
+2. Return a function as a result.
+#+end_quote
+
+With logic programming the same happens but instead of functions we
+have higher order predicates!
+
+** Higher order examples...
+A simple example of an higher order predicate is filter, which accepts
+a predicate as argument and a list and returns a new list with the
+elements that satisfy the predicate.
+#+begin_src prolog
+filter(_,[],[]).
+filter(P,[X|Xs],[X|Ys]) :- Goal=..[P,X],
+    call(Goal), !, filter(P,Xs,Ys).
+filter(P,[_|Xs],Ys) :- filter(P,Xs,Ys).
+
+greaterThan2(X) :- X > 2.
+
+%?- filter(greaterThan2, [1,2,3,4], X).
+%@    X = [3,4].
+#+end_src
+
+* Comparing programming languages
+Different languages have different approaches. We can compare
+imperative, functional and logic ways of writing the same function!
+
+** Python
+Summing two vectors with python will more or less show how it's done in
+the majority of the C like languages!
+#+begin_src python :results output :exports both
+def sumVectors(xs, ys):
+    result = []
+    for i in range(0, min(len(xs), len(ys))):
+        result.append(xs[i] + ys[i])
+    if len(xs) < len(ys):
+        for i in range(len(xs), len(ys)):
+            result.append(ys[i])
+    if len(xs) > len(ys):
+        for i in range(len(ys), len(xs)):
+            result.append(xs[i])
+    return result
+
+print(sumVectors([1,2,3,4], [5,6,7]))
+#+end_src
+
+#+RESULTS:
+: [6, 8, 10, 4]
+
+** Haskell
+Haskell is a language that is considered as "pure functional" as you
+can get. It does look a lot closer to prolog code than to python code!
+#+begin_src haskell :results value :exports both
+:{
+sumVectors :: [Int] -> [Int] -> [Int]
+sumVectors []  []        = []
+sumVectors xs  []        = xs
+sumVectors []  ys        = ys
+sumVectors [x] [y]       = [x + y]
+sumVectors (x:xs) (y:ys) = (+) x y : sumVectors xs ys
+:}
+
+sumVectors [1,2,3,4] [5,6,7]
+#+end_src
+
+#+RESULTS:
+: > [6,8,10,4]
+
+** Prolog
+Finally the logic programming version, where one defines predicates to
+achieve a goal. 
+#+begin_src prolog
+sumVectors([],     [],     []).
+sumVectors(Xs,     [],     Xs).
+sumVectors([],     Ys,     Ys).
+sumVectors([X],    [Y|Ys], [Z|Ys]) :- !, Z is X + Y.
+sumVectors([X|Xs], [Y],    [Z|Xs]) :- !, Z is X + Y.
+sumVectors([X|Xs], [Y|Ys], [Z|Zs]) :- !, Z is X + Y,
+	sumVectors(Xs, Ys, Zs).
+
+%?- sumVectors([1,2,3,4], [5,6,7], R).
+%@    R = [6,8,10,4].
+#+end_src
+
+* Conclusions
+Although it never reached a big status of popularity, prolog still
+strives on some specific industrial applications and on academia.
+#+ATTR_HTML: :width 500px :align center
+[[./prologerino.jpeg]]
+
+** Gracias
+Hope you enjoyed and hope that you might try it! :)
+#+ATTR_HTML: :align center
+[[./queaprendeste.png]]

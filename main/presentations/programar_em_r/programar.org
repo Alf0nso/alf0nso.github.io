@@ -1,0 +1,524 @@
+#+title: Introdução à Programação
+#+startup: fold latexpreview inlineimages
+#+author: Afonso Rafael
+#+reveal_theme: solarized
+#+reveal_extra_css: ./style.css
+#+options: author:t date:nil email:nil created:nil num:nil toc:nil
+
+#+attr_html: :width 100px :style float:left;
+[[file:grasshopper.png]]
+
+* Nota importante! Muito importante!
+Alguns assuntos aqui falados por mim poderão ser _simplificações da realidade
+para efeitos de brevidade_. Toda a partilha da informação tem sempre de ser
+completada por uma _receção critica da parte do ouvinte_. Se neste processo
+critico se descobrir que alguma coisa partilhada por mim está errada ou
+menos correta, por favor informem.
+* Computador, linguagens e instruções
+** Olá mundo?
+#+begin_src R :results output :exports both
+  # Repetir a tradição! A ideia de mostrar uma mensagem
+  # a cumprimentar advém da necessidade de confirmar que
+  # tudo está corretamente configurado e a funcionar.
+  
+  print("olá a todos!")
+#+end_src
+
+#+RESULTS:
+: [1] "olá a todos!"
+** História, para saber de onde vêm as coisas.
+O *R* nasce mais ou menos em 1993 com o objetivo de ensinar estatística
+numa universidade da Nova Zelândia. É uma linguagem fortemente inspirada
+por uma outra chamada *S* desenvolvida na _Bell Labs_.
+
+#+attr_html: :width 90px :style float:left;
+[[file:Rlogo.svg]]
+** Mas o que é?
+#+REVEAL_HTML:<div style="text-align: left;">
+_O que é o R?_
+
+→ Uma linguagem de programação interpretada, de múltiplos paradigmas!
+
+_Uma linguagem de programação? paradigmas?_
+
+→ Uma linguagem para falar com uma máquina!
+
+_Não posso usar o português?_
+
+→ Nem por isso...
+#+REVEAL_HTML: </div>
+** Linguagem natural e linguagem formal?
+#+begin_src R :results output :exports both
+  # De uma forma pragmática, as linguagens naturais têm como uso
+  # a comunicação entre pessoas. As linguagens formais e/ou de
+  # programação são linguagens para comunicar com máquinas...
+  # e por isso "mais ou menos" livres de contexto...
+  
+  carro_do_afonso <- list(cor="Vermelho", marca="Sado")
+  print(carro_do_afonso$cor)
+#+end_src
+
+#+RESULTS:
+: [1] "Vermelho"
+** Uma linguagem tipo 2... Chomsky.. o quê?
+#+REVEAL_HTML: <div style="float: right; width: 70%;text-align:left">
+Pois sim, este senhor aparece em todas os lados e em todos os _contextos_. Neste
+caso é importante pois, no seu estudo da língua, ajudou também na criação
+"gramatical" das linguagens de programação...
+#+REVEAL_HTML: </div>
+
+#+REVEAL_HTML: <div style="float: left; width: 30%;">
+#+attr_html: :width 240px :style float:left;
+[[file:chomsky_dither.png]]
+#+REVEAL_HTML: </div>
+** Interpretado? Compilado?
+#+REVEAL_HTML:<div style="text-align: left;">
+R é uma linguagem _interpretada_ no sentido em que não é _compilada_...
+Linguagens compiladas são traduzidas numa outra.
+
+Como por exemplo *C*!
+#+REVEAL_HTML:</div>
+#+begin_src C :tangle src/ola.c :main no :results value :exports both
+  #include <stdio.h>
+  void main() {
+    printf("olá olá!\n");
+  }
+#+end_src
+
+#+RESULTS:
+: olá olá!
+
+#+REVEAL: split
+
+#+REVEAL_HTML:<div style="text-align: left;">
+Ou *Fortran*!
+#+REVEAL_HTML:</div>
+#+begin_src fortran :results output :tangle src/ola.f90 :exports both
+  program ola
+    print *, 'olá, olá!'
+  end program ola
+#+end_src
+
+#+RESULTS:
+: olá, olá!
+
+** Um binário!
+Muitas vezes compilado significa de forma coloquial "_traduzido para zeros
+e uns_". *C* e *Fortran* são linguagens que compilamos para _binários_!
+
+#+begin_src shell :results output :exports both
+  gcc ./src/ola.c -o ./src/ola.exe
+  xxd -b ./src/ola.exe | head -n3 | cut -d' ' -f2-7
+#+end_src
+
+#+RESULTS:
+: 01111111 01000101 01001100 01000110 00000010 00000001
+: 00000001 00000000 00000000 00000000 00000000 00000000
+: 00000000 00000000 00000000 00000000 00000011 00000000
+
+** No computador só há zeros e uns?
+Efetivamente as máquinas que usamos tendem a preferir digerir informação
+em formato binário. Por exemplo as imagens em formato *png*!
+#+begin_src shell :results output :exports both
+  xxd -b grasshopper.png | head -n1 | cut -d' ' -f2-
+#+end_src
+
+#+RESULTS:
+: 10001001 01010000 01001110 01000111 00001101 00001010  .PNG..
+
+** Mas e o R?
+O *R* como disse é _interpretada_, em vez de ser traduzido para binário,
+as instruções do *R* são lidas e executadas diretamente pelo seu
+interpretador!
+
+#+begin_src shell :results output :exports both
+  xxd -b /usr/lib/R/bin/Rscript | head -n1 | cut -d' ' -f2-
+#+end_src
+
+#+RESULTS:
+: 01111111 01000101 01001100 01000110 00000010 00000001  .ELF..
+
+Efetivamente podemos validar que o interpretador do *R* é um interpretador...
+#+begin_src shell :results output :exports both
+  file /usr/lib/R/bin/Rscript | cut -d' ' -f 2,3,6,13
+#+end_src
+
+#+RESULTS:
+: ELF 64-bit executable, interpreter
+
+** Múltiplos paradigmas?
+#+REVEAL_HTML:<div style="text-align: left;">
+Existem muitos, e o que cada um significa, ou não, é um assunto
+bastante debatido...
+
+Podemos no entanto falar de dois importantes:
+- _Imperativo_
+- _Declarativo_
+#+REVEAL_HTML:</div>
+
+** Imperativo?
+Imperativo no sentido em que temos instruções que alteram o estado do programa.
+Uma espécie de _receita que o computador segue um por um_.
+
+#+begin_src R :results output :exports both
+  numbers <- c(1, 2, 3, 4, 5)
+  squared_numbers <- numeric(length(numbers))
+
+  for (i in 1:length(numbers)) {
+    squared_numbers[i] <- numbers[i]^2
+  }
+
+  print(squared_numbers)
+#+end_src
+
+#+RESULTS:
+: [1]  1  4  9 16 25
+
+** Declarativo?
+No sentido em que dizemos ao computador o que gostávamos de observar
+como resultado final mas _sem nos importarmos com o "como chegar ao
+resultado final"_.
+
+#+begin_src R :results output :exports both
+  print(c(1:5)^2)
+#+end_src
+
+#+RESULTS:
+: [1]  1  4  9 16 25
+
+** Imperativo no Fortran por exemplo
+Fortran também tem imperativo...
+
+#+begin_src fortran :results output :exports both
+  program imperative_example
+    implicit none
+    integer, parameter :: n = 5
+    integer :: i
+    integer :: numbers(n) = (/1, 2, 3, 4, 5/)
+    integer :: squared_numbers(n)
+
+    do i = 1, n
+      squared_numbers(i) = numbers(i) ** 2
+    end do
+
+    write(*, '(5I3)') squared_numbers
+
+  end program imperative_example
+#+end_src
+
+#+RESULTS:
+: 1  4  9 16 25
+
+** Declarativo no Fortran por exemplo
+E declarativo...
+
+#+begin_src fortran
+  program declarative_example
+    implicit none
+    integer :: i
+    integer, parameter :: numbers(5) = (/ (i ** 2, i=1,5) /)
+    write(*, '(5I3)') numbers
+  end program declarative_example
+#+end_src
+
+#+RESULTS:
+: 1  4  9 16 25
+* Tipos básicos no R
+** Tipos de coisas
+#+REVEAL_HTML:<div style="text-align: left;">
+No *R* temos seis tipos de dados "básicos":
+- *Numéricos* (numeric)
+- *Inteiros* (integer)
+- Complexos (Complex)
+- *Lógicos* (Logic)
+- *"Letras"* (Character)
+- Bits.. mais ou menos...
+#+REVEAL_HTML:</div>
+** Os numéricos?
+Números são provavelmente os mais usados...
+E especificamente "numéricos"
+
+#+begin_src R :results output :exports both
+  typeof(2); typeof(2.2)
+  typeof(Inf) # Infinito
+  typeof(NaN) # Not a Number
+#+end_src
+
+#+RESULTS:
+: [1] "double"
+: [1] "double"
+: [1] "double"
+: [1] "double"
+
+** E os inteiros? Não se usam?
+Efetivamente usamos quase sempre numéricos... Os inteiros são no entanto usados
+com funções de outras linguagens.. as chamadas FFI!
+#+begin_src R :results output :exports both
+  typeof(2L); is.integer(3); is.integer(3L)
+#+end_src
+
+#+RESULTS:
+: [1] "integer"
+: [1] FALSE
+: [1] TRUE
+
+** O quê? Como assim de outras linguagens?
+Sim podemos usar funções de fortran em R por exemplo!
+#+begin_src fortran :main no :results none :tangle src/aoquadrado.f90
+  subroutine quadrado(x, result)
+    implicit none
+    integer, intent(in) :: x
+    integer, intent(out) :: result
+
+    result = x * x
+  end subroutine quadrado
+#+end_src
+** Mas como?
+#+REVEAL_HTML:<div style="text-align: left;">
+Compilando o programa de fortran de uma forma especial...
+#+begin_src shell :results none
+  gfortran -shared -fPIC -o src/aoquadrado.so src/aoquadrado.f90
+#+end_src
+
+E importando no R!
+#+begin_src R :results output :exports both
+  dyn.load("src/aoquadrado.so")
+  result <- .Fortran("quadrado", as.integer(3), integer(1))
+  print(result[[2]])
+#+end_src
+
+#+RESULTS:
+: [1] 9
+#+REVEAL_HTML:</div>
+** Voltando aos números... complexos!
+Estes talvez não se usem tanto!
+#+begin_src R :results output :exports both
+  typeof(1 + 3i)
+  is.complex(1 + 3i)
+#+end_src
+
+#+RESULTS:
+: [1] "complex"
+: [1] TRUE
+** Verdadeiros e Falsos
+Todas as linguagens têm as suas formas de dizer verdadeiro e falso!
+
+_NA_ embora seja também considerada lógica é normalmente algo que
+indica que falta alguma coisa.
+#+begin_src R :results output :exports both
+  typeof(TRUE); typeof(FALSE); typeof(NA)
+  is.logical(T)
+#+end_src
+
+#+RESULTS:
+: [1] "logical"
+: [1] "logical"
+: [1] "logical"
+: [1] TRUE
+** Cuidado com os F e T
+Sim isto parece um pouco estranho... é mais um aviso para terem cuidado!
+#+begin_src R :results output :exports both
+  F <- T
+  F
+#+end_src
+
+#+RESULTS:
+: [1] TRUE
+** As letras, palavras, frases, ...
+Os caracteres são outro tipo de dados muito utilizado!
+#+begin_src R :results output :exports both
+  typeof("a"); is.character("a"); is.character('a')
+  nchar("palavra")
+#+end_src
+
+#+RESULTS:
+: [1] "character"
+: [1] TRUE
+: [1] TRUE
+: [1] 7
+** Os bits
+Outro tipo de dados pouco usado...
+#+begin_src R :results output :exports both
+  charToRaw("palavra"); typeof(charToRaw("palavra"))
+#+end_src
+
+#+RESULTS:
+: [1] 70 61 6c 61 76 72 61
+: [1] "raw"
+** Conversões entre tipos
+Os dados podem ser convertidos de um lado para o outro...
+desde que tenha algum sentido!
+
+#+begin_src R :results output :exports both
+  as.numeric("1"); as.numeric(TRUE);
+  as.numeric(FALSE); as.character(TRUE)
+#+end_src
+
+#+RESULTS:
+: [1] 1
+: [1] 1
+: [1] 0
+: [1] "TRUE"
+
+Se não tiver muito sentido, provavelmente vão ver um _NA_...
+#+begin_src R :results output :exports both
+  as.integer('c')
+#+end_src
+
+#+RESULTS:
+: [1] NA
+* Estruturas de dados
+** De escalar a vetor
+Um vetor em R só pode ter um tipo! Só podemos ter números,
+carateres ou valores lógicos.
+#+begin_src R :results output :exports both
+  typeof(c(1:10))
+  typeof(vector(mode='character',length=10))
+  typeof(vector(mode='logical',length=10))
+#+end_src
+
+#+RESULTS:
+: [1] "integer"
+: [1] "character"
+: [1] "logical"
+** Matrizes!
+Outra estrutura de dados útil são as matrizes! No R a matriz é de certa
+forma apenas um vetor com dimensões.
+#+begin_src R :results output :exports both
+  matrix(1:16, nrow = 4, byrow = TRUE)
+#+end_src
+
+#+RESULTS:
+:      [,1] [,2] [,3] [,4]
+: [1,]    1    2    3    4
+: [2,]    5    6    7    8
+: [3,]    9   10   11   12
+: [4,]   13   14   15   16
+** As contas com elas...
+E claro, podemos fazer contas com matrizes!
+#+begin_src R :results output :exports both
+  m.1 <- matrix(c(2, 0, 1, 1), nrow = 2); m.1
+  m.2 <- matrix(c(1, 1, 0, 2), nrow = 2); m.2
+  m.1 %*% m.2
+#+end_src
+
+#+RESULTS:
+:      [,1] [,2]
+: [1,]    2    1
+: [2,]    0    1
+:      [,1] [,2]
+: [1,]    1    0
+: [2,]    1    2
+:      [,1] [,2]
+: [1,]    3    2
+: [2,]    1    2
+** E o "array"!
+O "array" é uma matriz com dimensões tal como a matriz é um vetor com
+dimensões!
+
+#+begin_src R :results output :exports both
+  array(1:16, dim = c(4, 4, 2))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+, , 1
+
+     [,1] [,2] [,3] [,4]
+[1,]    1    5    9   13
+[2,]    2    6   10   14
+[3,]    3    7   11   15
+[4,]    4    8   12   16
+
+, , 2
+
+     [,1] [,2] [,3] [,4]
+[1,]    1    5    9   13
+[2,]    2    6   10   14
+[3,]    3    7   11   15
+[4,]    4    8   12   16
+
+#+end_example
+** E Listas também?
+Em R efetivamente o "array" não é uma lista... uma lista é uma estrutura que
+pode ter coisas de diferentes tipos!
+#+begin_src R :results output :exports both
+  list(c("a", "b", "c"),
+       c(TRUE, TRUE, FALSE),
+       matrix(1:6, nrow = 3))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+[[1]]
+[1] "a" "b" "c"
+
+[[2]]
+[1]  TRUE  TRUE FALSE
+
+[[3]]
+     [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6
+
+#+end_example
+** As listas podem ter nomes!
+Podemos distinguir os vários elementos de uma lista com nomes!
+#+begin_src R :results output :exports both
+  list(cor = c("Vermelho", "verde"), 
+       flor = c(TRUE, FALSE, TRUE), 
+       tempo = matrix(1:6, nrow = 3))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+$cor
+[1] "Vermelho" "verde"   
+
+$flor
+[1]  TRUE FALSE  TRUE
+
+$tempo
+     [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6
+
+#+end_example
+* Dados externos
+** Os dados podem vir de fora
+Obviamente que podemos importar dados de fora do R. A utilidade
+de toda esta maquinaria é também para processar coisas que
+observamos noutros sítios!
+
+#+begin_src R :results output :exports both :session
+  flowers <- read.table(file = 'flower.csv',
+                       header = TRUE,
+                       sep = "\t",
+                       stringsAsFactors = TRUE)
+  head(flowers)
+#+end_src
+
+#+RESULTS:
+: treat nitrogen block height weight leafarea shootarea flowers
+: 1   tip   medium     1    7.5   7.62     11.7      31.9       1
+: 2   tip   medium     1   10.7  12.14     14.1      46.0      10
+: 3   tip   medium     1   11.2  12.76      7.1      66.7      10
+: 4   tip   medium     1   10.4   8.78     11.9      20.3       1
+: 5   tip   medium     1   10.4  13.58     14.5      26.9       4
+: 6   tip   medium     1    9.8  10.08     12.2      72.7       9
+** E claro, Estatística...
+Podemos ver informação estatística contida nos dados que importamos!
+#+begin_src R :results output :session
+  summary(flowers)
+#+end_src
+
+#+RESULTS:
+:    treat      nitrogen      block         height           weight          leafarea       shootarea         flowers      
+:  notip:48   high  :32   Min.   :1.0   Min.   : 1.200   Min.   : 5.790   Min.   : 5.80   Min.   :  5.80   Min.   : 1.000  
+:  tip  :48   low   :32   1st Qu.:1.0   1st Qu.: 4.475   1st Qu.: 9.027   1st Qu.:11.07   1st Qu.: 39.05   1st Qu.: 4.000  
+:             medium:32   Median :1.5   Median : 6.450   Median :11.395   Median :13.45   Median : 70.05   Median : 6.000  
+:                         Mean   :1.5   Mean   : 6.840   Mean   :12.155   Mean   :14.05   Mean   : 79.78   Mean   : 7.062  
+:                         3rd Qu.:2.0   3rd Qu.: 9.025   3rd Qu.:14.537   3rd Qu.:16.45   3rd Qu.:113.28   3rd Qu.: 9.000  
+:                         Max.   :2.0   Max.   :17.200   Max.   :23.890   Max.   :49.20   Max.   :189.60   Max.   :17.000

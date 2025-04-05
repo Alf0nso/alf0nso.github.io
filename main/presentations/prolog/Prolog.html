@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>What Is Prolog?</title>
+<meta name="author" content="Laura Herrero &amp; Afonso Rafael"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/moon.css" id="theme"/>
+
+<link rel="stylesheet" href="./style.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">What Is Prolog?</h1><p class="subtitle"></p>
+<h2 class="author">Laura Herrero &amp; Afonso Rafael</h2><p class="date">Created: 2025-04-05 sáb 22:42</p>
+</section>
+<section>
+<section id="slide-org91aa61b">
+<h2 id="org91aa61b">Prolog</h2>
+
+<div id="orge282e1d" class="figure">
+<p><img src="./prologday.jpeg" alt="prologday.jpeg" width="500px" align="center" />
+</p>
+</div>
+</section>
+<section id="slide-orge1d6313">
+<h3 id="orge1d6313">The language</h3>
+<p>
+Prolog is a language rooted in <b>logic</b>, and although there is no universal
+definition of it we can say that logic deals with "properties of" and
+"relations between":
+</p>
+<ul>
+<li>Syntax</li>
+<li>Semantics</li>
+<li>Inference</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-prolog"   ><code trim><span style="color: #c678dd;">imortal</span>(<span style="color: #dcaeea;">X</span>) :- woman(<span style="color: #dcaeea;">X</span>).
+<span style="color: #c678dd;">woman</span>(eddicirca).
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- imortal(X).</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@    X = eddicirca.</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-org3ed1836">
+<h3 id="org3ed1836">Prolog is&#x2026;</h3>
+<p>
+Very <b>simple</b>, all <span class="underline">data</span> is represented by <span class="underline">terms</span> and terms are defined
+inductively. A <span class="underline">term</span> can be:
+</p>
+
+<ul>
+<li><b>Variable</b>: X, Letter, _, &#x2026;</li>
+<li><b>Atomic</b> <b>terms</b>
+<ul>
+<li>atom: a, at, atom, &#x2026;</li>
+<li>integer: 12, 42, &#x2026;</li>
+<li>others: 3.14, &#x2026;</li>
+
+</ul></li>
+<li><b>Compound term:</b> F(Term<sub>1</sub>, &#x2026;, Term<sub>N</sub>) which is also a term! (F is the functor name, and F/N principal functor)</li>
+
+</ul>
+</section>
+<section id="slide-org5bbe110">
+<h3 id="org5bbe110">What is and what is not&#x2026;</h3>
+<p>
+If we are unsure what something is, we can also ask prolog to help us!
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-prolog"   ><code trim><span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- integer(1). </span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@    true.</span>
+
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- atom(atom).</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@    true.</span>
+
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- atom(X).</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@    false.</span>
+
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- var(X).</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@    true.</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-org817ddf6">
+<h3 id="org817ddf6">The same with compound terms&#x2026;</h3>
+<p>
+The same with compound terms!
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-prolog"   ><code trim><span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- functor(X, :-, 2).</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@    X = (_A:-_B).</span>
+
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- functor(1 + 1, F, N).</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@    F = (+), N = 2.</span>
+
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- f(a,g(X)) =.. [Name | Args].</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@    Name = f, Args = [a,g(X)].</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-org6f4eaeb">
+<h3 id="org6f4eaeb">Prolog also is&#x2026;</h3>
+<p>
+A <b>declarative language</b>, we are concerned with stating what holds and
+less interested in how the specific implementation finds the solution&#x2026;
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-prolog"   ><code trim><span style="color: #c678dd;">length_list</span>(<span style="color: #51afef;">[]</span>, 0).
+<span style="color: #c678dd;">length_list</span>(<span style="color: #51afef;">[</span><span style="color: #dcaeea;">_</span> <span style="color: #51afef;">|</span> <span style="color: #dcaeea;">Ls</span><span style="color: #51afef;">]</span>, <span style="color: #dcaeea;">N1</span>) :- length_list(<span style="color: #dcaeea;">Ls</span>, <span style="color: #dcaeea;">N2</span>), <span style="color: #dcaeea;">N1</span> is <span style="color: #dcaeea;">N2</span>+1.
+
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- length_list([a,b,c], X).</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@    X = 3.</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-orge94450c">
+<h3 id="orge94450c">Very general</h3>
+<p>
+We are not computing the length of a list, we are defining a relation! With this relation we can also ask for a list of 3 elements or for any answer that satisfies&#x2026;
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-prolog"   ><code trim><span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- length_list(Ls, 3). </span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ Ls = [_, _, _] .</span>
+
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- length_list(Ls, X).</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ Ls = [],</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ X = 0 ;</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ Ls = [_],</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ X = 1 ;</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ Ls = [_, _],</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ X = 2 ;</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ Ls = [_, _, _],</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ X = 3 .</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-org981afee">
+<h3 id="org981afee">Functional?</h3>
+<p>
+In the category of <b>declarative</b> languages we have functional programming
+languages and logic programming languages. A function is a restricted form of a relation and functional programming can be regarded as a restricted form of logical programming.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-prolog"   ><code trim><span style="color: #5B6268;">% </span><span style="color: #5B6268;">Peano numbers</span>
+<span style="color: #c678dd;">natnum</span>(0).
+<span style="color: #c678dd;">natnum</span>(s(<span style="color: #dcaeea;">X</span>)) :- natnum(<span style="color: #dcaeea;">X</span>).
+
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- natnum(X). </span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ X = 0 ;</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ X = s(0) ;</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ X = s(s(0)) ;</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ X = s(s(s(0))) .</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-org7021dbe">
+<h3 id="org7021dbe">Versatile</h3>
+<p>
+Prolog can also be used to write big applications related to the web,
+optimization, verification, etc&#x2026; The piece of code bellow is a simple
+http call.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-prolog"   ><code trim>:- use_module(library(http/http_open)).
+:- use_module(library(lists)).
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- http_open("https://news.ycombinator.com/", Stream, []),</span>
+<span style="color: #5B6268;">%   </span><span style="color: #5B6268;">length(Cs, 20),</span>
+<span style="color: #5B6268;">%   </span><span style="color: #5B6268;">maplist(get_char(Stream), Cs),</span>
+<span style="color: #5B6268;">%   </span><span style="color: #5B6268;">string_chars(Str, Cs).</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ Stream = &lt;stream&gt;(0x55fe18d3d580,0x55fe18d3d6e0),</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ Cs = [&lt;, h, t, m, l, ' ', l, a, n|...],</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ Str = "&lt;html lang=\"en\" op=\""".</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-org5396968">
+<h3 id="org5396968">Another Example</h3>
+<p>
+It can also be used for applications related to security. Since in
+prolog a character is also an atom, we have a situation where data is
+also code. This allows for very good data manipulation capabilities
+which is very useful when writing cryptography protocols.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-prolog"   ><code trim>:- use_module(library(crypto)).
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- Message = "Ola!!",</span>
+<span style="color: #5B6268;">%   </span><span style="color: #5B6268;">ed25519_new_keypair(Pair),</span>
+<span style="color: #5B6268;">%   </span><span style="color: #5B6268;">ed25519_sign(Pair, Message, Signature, []).</span>
+
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ Message = "Ola!!",</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ Pair = "0Q\x2\\x1\\x1\0\x5\\x6\\x3\+ep\x4\\"\x4\ \x4\x&#219; ...",</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ Signature = "fd687c9b6611abe6fb2 ...".</span>
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org33a9c34">
+<h2 id="org33a9c34">How to program in prolog?</h2>
+<p>
+A Prolog program is a set of predicates that define relations between
+their arguments. There is only one single language element, a <b>clause</b>:
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-prolog"   ><code trim><span style="color: #c678dd;">head</span> :- body.
+</code></pre>
+</div>
+
+<p>
+This means:
+</p>
+<blockquote >
+<p>
+<b>if</b> <span class="underline">body</span> holds, <b>then</b> <span class="underline">head</span> holds.
+</p>
+</blockquote>
+
+<p>
+If the head always holds the body is not necessary!
+</p>
+</section>
+<section id="slide-orgcad570e">
+<h3 id="orgcad570e">Arithmetic not included</h3>
+<p>
+Horn clauses, which is the subset of first order logic in which prolog
+happens, does not come with arithmetic! To address this, prolog has an
+impure predicate built-in called: <b>is/2</b> which requires the second
+element to be instantiated&#x2026;
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-prolog"   ><code trim><span style="color: #c678dd;">factorial</span>(0,1).
+<span style="color: #c678dd;">factorial</span>(<span style="color: #dcaeea;">N</span>,<span style="color: #dcaeea;">F</span>) :- <span style="color: #dcaeea;">N</span>&gt;0, <span style="color: #dcaeea;">N1</span> is <span style="color: #dcaeea;">N</span>-1, factorial(<span style="color: #dcaeea;">N1</span>,<span style="color: #dcaeea;">F1</span>), <span style="color: #dcaeea;">F</span> is <span style="color: #dcaeea;">N</span>*<span style="color: #dcaeea;">F1</span>.
+
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- factorial(23, F).</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@    F = 25852016738884976640000</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ ;  false.</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-orgf5b1541">
+<h3 id="orgf5b1541">The problem with is, is&#x2026;</h3>
+<p>
+The <b>is/2</b> predicate is not reversible and does not really express an
+actual relation! To get trough this there are libraries that extend
+logic programming over multiple domains. CLP(ℤ) extends logic
+programming to integers allowing for relations over this domain.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-prolog"   ><code trim>:- use_module(library(clpz)).
+<span style="color: #c678dd;">fac</span>(0, 1).
+<span style="color: #c678dd;">fac</span>(<span style="color: #dcaeea;">N</span>, <span style="color: #dcaeea;">F</span>) :- <span style="color: #dcaeea;">N</span> #&gt; 0, <span style="color: #dcaeea;">N1</span> #= <span style="color: #dcaeea;">N</span> - 1, <span style="color: #dcaeea;">F</span> #= <span style="color: #dcaeea;">N</span> * <span style="color: #dcaeea;">F1</span>, fac(<span style="color: #dcaeea;">N1</span>, <span style="color: #dcaeea;">F1</span>).
+
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- fac(N, 25852016738884976640000).</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@    N = 23</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ ;  false.</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-orgeddffd2">
+<h3 id="orgeddffd2">Another special predicate is!</h3>
+<p>
+Yes, ! is also a predicate, and a special one&#x2026; Like <b>is/2</b>, it is also
+impure and basically allows you to control the flow of computation.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-prolog"   ><code trim><span style="color: #c678dd;">sumNums</span>(<span style="color: #51afef;">[]</span>,0).
+<span style="color: #c678dd;">sumNums</span>(<span style="color: #51afef;">[</span><span style="color: #dcaeea;">X</span><span style="color: #51afef;">|</span><span style="color: #dcaeea;">Xs</span><span style="color: #51afef;">]</span>,<span style="color: #dcaeea;">Z</span>) :- number(<span style="color: #dcaeea;">X</span>), <span style="color: #51afef;">!</span>, sumNums(<span style="color: #dcaeea;">Xs</span>,<span style="color: #dcaeea;">Y</span>), <span style="color: #dcaeea;">Z</span> is <span style="color: #dcaeea;">X</span>+<span style="color: #dcaeea;">Y</span>.
+<span style="color: #c678dd;">sumNums</span>(<span style="color: #51afef;">[</span><span style="color: #dcaeea;">_</span><span style="color: #51afef;">|</span><span style="color: #dcaeea;">Xs</span><span style="color: #51afef;">]</span>,<span style="color: #dcaeea;">Z</span>) :- sumNums(<span style="color: #dcaeea;">Xs</span>,<span style="color: #dcaeea;">Z</span>).
+
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- sumNums([1,2,a,3], X).</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@    X = 6.</span>
+</code></pre>
+</div>
+
+<p>
+The <b>!/0</b> predicate makes it impossible to flow from <span class="underline">right</span> to <span class="underline">left</span>. In
+this example, if the <b>X</b> is a number then the right side also holds, and
+if not it jumps directly to the last line.
+</p>
+</section>
+<section id="slide-orgd36b388">
+<h3 id="orgd36b388">If ∧ is, then ∨ is;</h3>
+<p>
+Until now anytime we wrote the <b>,/2</b> we were specifying a logical
+conjunction (<b>and</b>) but what about the logical disjunction? In prolog the
+predicate that represents (<b>or</b>) is <b>;/2</b>.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-prolog"   ><code trim><span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- true, false.</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@    false.</span>
+
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- true; false.</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@    true</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@ ;  false.</span>
+</code></pre>
+</div>
+
+<p>
+It is important to note that one can also represent a disjunction in
+prolog with two separate predicates!
+</p>
+</section>
+<section id="slide-org4dfa0ae">
+<h3 id="org4dfa0ae">Another way to write the same&#x2026;</h3>
+<p>
+Using the <b>!/0</b> predicate one can easily write the <span class="underline">if then else</span> structure!
+But the way it presents is not the prettiest&#x2026; 
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-prolog"   ><code trim><span style="color: #5B6268;">% </span><span style="color: #5B6268;">ifThenElse(X) :- If(X), !, Then(X).</span>
+<span style="color: #5B6268;">% </span><span style="color: #5B6268;">ifThenElse(X) :- Else(X).</span>
+</code></pre>
+</div>
+
+<p>
+We can substitute the <b>!/0</b> predicate with <b>→/2</b> which works as (If → Then)
+and with the disjunction we have:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-prolog"   ><code trim><span style="color: #5B6268;">% </span><span style="color: #5B6268;">ifThenElse(X) :- If(X) -&gt; Then(X); Else(X).</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-org66c61e6">
+<h3 id="org66c61e6">Previous example but now prettier!</h3>
+<p>
+The example we had previously can clearly be re-written with the new
+predicates!
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-prolog"   ><code trim><span style="color: #5B6268;">%</span><span style="color: #5B6268;">Old version</span>
+<span style="color: #c678dd;">sumNums</span>(<span style="color: #51afef;">[]</span>,0).
+<span style="color: #c678dd;">sumNums</span>(<span style="color: #51afef;">[</span><span style="color: #dcaeea;">X</span><span style="color: #51afef;">|</span><span style="color: #dcaeea;">Xs</span><span style="color: #51afef;">]</span>,<span style="color: #dcaeea;">Z</span>) :- number(<span style="color: #dcaeea;">X</span>), <span style="color: #51afef;">!</span>, sumNums(<span style="color: #dcaeea;">Xs</span>,<span style="color: #dcaeea;">Y</span>), <span style="color: #dcaeea;">Z</span> is <span style="color: #dcaeea;">X</span>+<span style="color: #dcaeea;">Y</span>.
+<span style="color: #c678dd;">sumNums</span>(<span style="color: #51afef;">[</span><span style="color: #dcaeea;">_</span><span style="color: #51afef;">|</span><span style="color: #dcaeea;">Xs</span><span style="color: #51afef;">]</span>,<span style="color: #dcaeea;">Z</span>) :- sumNums(<span style="color: #dcaeea;">Xs</span>,<span style="color: #dcaeea;">Z</span>).
+
+<span style="color: #5B6268;">% </span><span style="color: #5B6268;">New version</span>
+<span style="color: #c678dd;">sumNums</span>(<span style="color: #51afef;">[]</span>,0).
+<span style="color: #c678dd;">sumNums</span>(<span style="color: #51afef;">[</span><span style="color: #dcaeea;">X</span><span style="color: #51afef;">|</span><span style="color: #dcaeea;">Xs</span><span style="color: #51afef;">]</span>,<span style="color: #dcaeea;">Z</span>) :- number(<span style="color: #dcaeea;">X</span>) <span style="color: #51afef;">-&gt;</span> sumNums(<span style="color: #dcaeea;">Xs</span>,<span style="color: #dcaeea;">Y</span>),
+          <span style="color: #dcaeea;">Z</span> is <span style="color: #dcaeea;">X</span>+<span style="color: #dcaeea;">Y</span><span style="color: #51afef;">;</span> sumNums(<span style="color: #dcaeea;">Xs</span>,<span style="color: #dcaeea;">Z</span>).
+
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- sumNums([1,h,o,l,2,a,3], X).</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@    X = 6.</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-orga1ebde9">
+<h3 id="orga1ebde9">Higher order predicates!</h3>
+<p>
+In functional programming, functions are first class citizens and this
+means we can have higher order functions! Higher order functions are
+functions that do at least one of the following:
+</p>
+
+<blockquote >
+<ol>
+<li>Take one or more functions as arguments.</li>
+<li>Return a function as a result.</li>
+
+</ol>
+</blockquote>
+
+<p>
+With logic programming the same happens but instead of functions we
+have higher order predicates!
+</p>
+</section>
+<section id="slide-org437c567">
+<h3 id="org437c567">Higher order examples&#x2026;</h3>
+<p>
+A simple example of an higher order predicate is filter, which accepts
+a predicate as argument and a list and returns a new list with the
+elements that satisfy the predicate.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-prolog"   ><code trim><span style="color: #c678dd;">filter</span>(<span style="color: #dcaeea;">_</span>,<span style="color: #51afef;">[]</span>,<span style="color: #51afef;">[]</span>).
+<span style="color: #c678dd;">filter</span>(<span style="color: #dcaeea;">P</span>,<span style="color: #51afef;">[</span><span style="color: #dcaeea;">X</span><span style="color: #51afef;">|</span><span style="color: #dcaeea;">Xs</span><span style="color: #51afef;">]</span>,<span style="color: #51afef;">[</span><span style="color: #dcaeea;">X</span><span style="color: #51afef;">|</span><span style="color: #dcaeea;">Ys</span><span style="color: #51afef;">]</span>) :- <span style="color: #dcaeea;">Goal</span>=..<span style="color: #51afef;">[</span><span style="color: #dcaeea;">P</span>,<span style="color: #dcaeea;">X</span><span style="color: #51afef;">]</span>,
+    call(<span style="color: #dcaeea;">Goal</span>), <span style="color: #51afef;">!</span>, filter(<span style="color: #dcaeea;">P</span>,<span style="color: #dcaeea;">Xs</span>,<span style="color: #dcaeea;">Ys</span>).
+<span style="color: #c678dd;">filter</span>(<span style="color: #dcaeea;">P</span>,<span style="color: #51afef;">[</span><span style="color: #dcaeea;">_</span><span style="color: #51afef;">|</span><span style="color: #dcaeea;">Xs</span><span style="color: #51afef;">]</span>,<span style="color: #dcaeea;">Ys</span>) :- filter(<span style="color: #dcaeea;">P</span>,<span style="color: #dcaeea;">Xs</span>,<span style="color: #dcaeea;">Ys</span>).
+
+<span style="color: #c678dd;">greaterThan2</span>(<span style="color: #dcaeea;">X</span>) :- <span style="color: #dcaeea;">X</span> &gt; 2.
+
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- filter(greaterThan2, [1,2,3,4], X).</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@    X = [3,4].</span>
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orge16e402">
+<h2 id="orge16e402">Comparing programming languages</h2>
+<p>
+Different languages have different approaches. We can compare
+imperative, functional and logic ways of writing the same function!
+</p>
+</section>
+<section id="slide-orgaeb1b28">
+<h3 id="orgaeb1b28">Python</h3>
+<p>
+Summing two vectors with python will more or less show how it's done in
+the majority of the C like languages!
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #51afef;">def</span> <span style="color: #c678dd;">sumVectors</span>(xs, ys):
+    <span style="color: #dcaeea;">result</span> = []
+    <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(0, <span style="color: #c678dd;">min</span>(<span style="color: #c678dd;">len</span>(xs), <span style="color: #c678dd;">len</span>(ys))):
+        result.append(xs[i] + ys[i])
+    <span style="color: #51afef;">if</span> <span style="color: #c678dd;">len</span>(xs) &lt; <span style="color: #c678dd;">len</span>(ys):
+        <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(xs), <span style="color: #c678dd;">len</span>(ys)):
+            result.append(ys[i])
+    <span style="color: #51afef;">if</span> <span style="color: #c678dd;">len</span>(xs) &gt; <span style="color: #c678dd;">len</span>(ys):
+        <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(ys), <span style="color: #c678dd;">len</span>(xs)):
+            result.append(xs[i])
+    <span style="color: #51afef;">return</span> result
+
+<span style="color: #c678dd;">print</span>(sumVectors([1,2,3,4], [5,6,7]))
+</code></pre>
+</div>
+</section>
+<section id="slide-org0ffcb68">
+<h3 id="org0ffcb68">Haskell</h3>
+<p>
+Haskell is a language that is considered as "pure functional" as you
+can get. It does look a lot closer to prolog code than to python code!
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-haskell"   ><code trim><span style="color: #ECBE7B;">:</span>{
+<span style="color: #c678dd;">sumVectors</span> <span style="color: #dcaeea;">::</span> [<span style="color: #ECBE7B;">Int</span>] <span style="color: #dcaeea;">-&gt;</span> [<span style="color: #ECBE7B;">Int</span>] <span style="color: #dcaeea;">-&gt;</span> [<span style="color: #ECBE7B;">Int</span>]
+<span style="color: #c678dd;">sumVectors</span> <span style="color: #ECBE7B;">[]</span>  <span style="color: #ECBE7B;">[]</span>        <span style="color: #dcaeea;">=</span> <span style="color: #ECBE7B;">[]</span>
+<span style="color: #c678dd;">sumVectors</span> xs  <span style="color: #ECBE7B;">[]</span>        <span style="color: #dcaeea;">=</span> xs
+<span style="color: #c678dd;">sumVectors</span> <span style="color: #ECBE7B;">[]</span>  ys        <span style="color: #dcaeea;">=</span> ys
+<span style="color: #c678dd;">sumVectors</span> [x] [y]       <span style="color: #dcaeea;">=</span> [x <span style="color: #dcaeea;">+</span> y]
+<span style="color: #c678dd;">sumVectors</span> (x<span style="color: #ECBE7B;">:</span>xs) (y<span style="color: #ECBE7B;">:</span>ys) <span style="color: #dcaeea;">=</span> (<span style="color: #dcaeea;">+</span>) x y <span style="color: #ECBE7B;">:</span> sumVectors xs ys
+<span style="color: #ECBE7B;">:</span>}
+
+<span style="color: #c678dd;">sumVectors</span> [1,2,3,4] [5,6,7]
+</code></pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">6</td>
+<td class="org-right">8</td>
+<td class="org-right">10</td>
+<td class="org-right">4</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="slide-org18691dd">
+<h3 id="org18691dd">Prolog</h3>
+<p>
+Finally the logic programming version, where one defines predicates to
+achieve a goal. 
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-prolog"   ><code trim><span style="color: #c678dd;">sumVectors</span>(<span style="color: #51afef;">[]</span>,     <span style="color: #51afef;">[]</span>,     <span style="color: #51afef;">[]</span>).
+<span style="color: #c678dd;">sumVectors</span>(<span style="color: #dcaeea;">Xs</span>,     <span style="color: #51afef;">[]</span>,     <span style="color: #dcaeea;">Xs</span>).
+<span style="color: #c678dd;">sumVectors</span>(<span style="color: #51afef;">[]</span>,     <span style="color: #dcaeea;">Ys</span>,     <span style="color: #dcaeea;">Ys</span>).
+<span style="color: #c678dd;">sumVectors</span>(<span style="color: #51afef;">[</span><span style="color: #dcaeea;">X</span><span style="color: #51afef;">]</span>,    <span style="color: #51afef;">[</span><span style="color: #dcaeea;">Y</span><span style="color: #51afef;">|</span><span style="color: #dcaeea;">Ys</span><span style="color: #51afef;">]</span>, <span style="color: #51afef;">[</span><span style="color: #dcaeea;">Z</span><span style="color: #51afef;">|</span><span style="color: #dcaeea;">Ys</span><span style="color: #51afef;">]</span>) :- <span style="color: #51afef;">!</span>, <span style="color: #dcaeea;">Z</span> is <span style="color: #dcaeea;">X</span> + <span style="color: #dcaeea;">Y</span>.
+<span style="color: #c678dd;">sumVectors</span>(<span style="color: #51afef;">[</span><span style="color: #dcaeea;">X</span><span style="color: #51afef;">|</span><span style="color: #dcaeea;">Xs</span><span style="color: #51afef;">]</span>, <span style="color: #51afef;">[</span><span style="color: #dcaeea;">Y</span><span style="color: #51afef;">]</span>,    <span style="color: #51afef;">[</span><span style="color: #dcaeea;">Z</span><span style="color: #51afef;">|</span><span style="color: #dcaeea;">Xs</span><span style="color: #51afef;">]</span>) :- <span style="color: #51afef;">!</span>, <span style="color: #dcaeea;">Z</span> is <span style="color: #dcaeea;">X</span> + <span style="color: #dcaeea;">Y</span>.
+<span style="color: #c678dd;">sumVectors</span>(<span style="color: #51afef;">[</span><span style="color: #dcaeea;">X</span><span style="color: #51afef;">|</span><span style="color: #dcaeea;">Xs</span><span style="color: #51afef;">]</span>, <span style="color: #51afef;">[</span><span style="color: #dcaeea;">Y</span><span style="color: #51afef;">|</span><span style="color: #dcaeea;">Ys</span><span style="color: #51afef;">]</span>, <span style="color: #51afef;">[</span><span style="color: #dcaeea;">Z</span><span style="color: #51afef;">|</span><span style="color: #dcaeea;">Zs</span><span style="color: #51afef;">]</span>) :- <span style="color: #51afef;">!</span>, <span style="color: #dcaeea;">Z</span> is <span style="color: #dcaeea;">X</span> + <span style="color: #dcaeea;">Y</span>,
+        sumVectors(<span style="color: #dcaeea;">Xs</span>, <span style="color: #dcaeea;">Ys</span>, <span style="color: #dcaeea;">Zs</span>).
+
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">?- sumVectors([1,2,3,4], [5,6,7], R).</span>
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">@    R = [6,8,10,4].</span>
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgca7c087">
+<h2 id="orgca7c087">Conclusions</h2>
+<p>
+Although it never reached a big status of popularity, prolog still
+strives on some specific industrial applications and on academia.
+</p>
+
+<div id="orgf249226" class="figure">
+<p><img src="./prologerino.jpeg" alt="prologerino.jpeg" width="500px" align="center" />
+</p>
+</div>
+</section>
+<section id="slide-org398aa89">
+<h3 id="org398aa89">Gracias</h3>
+<p>
+Hope you enjoyed and hope that you might try it! :)
+</p>
+
+<div id="org9f71fe4" class="figure">
+<p><img src="./queaprendeste.png" alt="queaprendeste.png" align="center" />
+</p>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>
