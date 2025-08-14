@@ -15,4 +15,4 @@ on what I do with this website in foreseen future.
 According to the [[https://ghostze.ro/now/][now page]] of [[https://ghostze.ro/about/][ghostze]] the «now» movement has been
 started by [[https://sive.rs/nowff][Derek Sivers]]. It is quite a simple concept, a page where one
 writes what is doing now. I will try to update it as frequently as I
-can. My now page is: [[./now.html][now]]
+can. My now page is: [[./now.html][/now]]

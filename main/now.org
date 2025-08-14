@@ -8,25 +8,20 @@
 
 Currently (2024-10-22):
 - Life is starting to look more like life
-- Currently "homenagem à catalunha" by Orwell
+- *Currently* "homenagem à catalunha" by Orwell
 - My partner bought me Miyoo mini+ which made me really happy
   
 * Previously
-#+caption: Bruxa
-#+attr_html: :width 200px
- [[./images/misc/bruxa.png]]
-
 ** 2024-08-25
 - Finished reading Jane Austen's Persuasion.
 - Found a stable place to sleep and live (for now at least).
 - Finally managed to rest properly and recover strength.
-
 ** 2024-07-31
 - My online presence is on hold while I search for a place in Barcelona.
-- Moved out of Salamanca... feelings of nostalgia are mainstream.
+- Moved out of Salamanca... feeling very nostalgic.
 - Still on loops and things are performing well.. (until now).
 - Hylics is kind of in standby, but want to go back to the game.
-- Dropped Emma's book for now to read "The Hundred Years' War on   Palestine".
+- *Dropped* Emma's book for now to read "The Hundred Years' War on Palestine".
 
 ** 2024-05-10
 - Writing is still hard... need a better way to motivate myself.
@@ -36,8 +31,10 @@ Currently (2024-10-22):
 - Finished reading "Ensaio sobre a lucidez" by Saramago.
 
 ** 2024-02-14
+#+caption: Bruxa
+#+attr_html: :width 200px
+[[./images/misc/bruxa.png]]
 - Writing is hard (haven't actually written any blog post).
 - On BSC I am working with loop optimisation.
 - Finished the book I was reading from Silvia Federici.
 - *Currently* reading "Ensaio sobre a lucidez" by Saramago.
-
