@@ -17,3 +17,6 @@ _cache/
 CV/*.aux
 CV/*.log
 CV/*.out
+
+# My own junk
+testing/
