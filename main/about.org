@@ -2,16 +2,17 @@
 #+startup: fold latexpreview inlineimages
 
 * About Me
-#+caption: Me (Afonso Rafael)
+#+caption: Myself
 #+attr_html: :width 400px
 [[./images/myself/my_face.png]]
 
 Not that my life has anything out of the ordinary, but if curiosity
 brought you to this website then I might as well give you some
 information about me. The dithered image present on this page is me.
-More specifically me on 18 of May of 2024. I tend to change the
-way I present myself quite a lot so if right now I do not look like
-that, don't be surprised. The image here was transformed using the error-diffusion algorithm Floyd–Steinberg.
+More specifically me on 18 of May of 2024. I tend to change the way I
+present myself quite a lot so if right now I do not look like that,
+don't be surprised. The image here was transformed using the
+error-diffusion algorithm Floyd–Steinberg.
 
 ** Academic
 I attended [[https://colegiodestomas.com/en/][Colégio de S.Tomás]] from 1st year of school to the last day
@@ -30,7 +31,7 @@ physical shape of the earth, I did choose to pursue CS in order to
 study Programming Languages, Compilers and Quantum Computing.
 
 ** Music
-Music is definitely what I can call "my hobby". It started casually
+Music is definitely what I can call «my hobby». It started casually
 with learning an instrument for fun and evolved into a couple of bands
 and musical endeavours. I could easily dedicate multiple paragraphs to
 each project, but that would be more of an article, which this is not.
