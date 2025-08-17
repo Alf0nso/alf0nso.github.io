@@ -9,7 +9,7 @@ li { font-size: 1.4em; }
 /* General description of the page.
    The whole website follows a very typical
    form.
- */
+*/
 .container {
     display: grid;
     grid-template-columns: 200px 1fr 200px;
@@ -60,28 +60,28 @@ h2#references {
 
 /* Don't split up a citation over multiple lines */
 div.csl-left-margin {
-  display: inline;
+    display: inline;
 }
 
 div.csl-right-inline {
-  display: inline;
+    display: inline;
 }
 
 /* Align citations to the top when using table format */
 div#refs td {
-  vertical-align: top;
+    vertical-align: top;
 }
 
 /* Style the references section */
 div#refs {
-  margin-top: 2em;
+    margin-top: 2em;
 }
 
 /* Style individual bibliography entries */
 div.csl-entry {
-  margin-bottom: 1em;
-  padding-left: 2em;
-  text-indent: -1.5em;
+    margin-bottom: 1em;
+    padding-left: 2em;
+    text-indent: -1.5em;
 }
 /* -------------------------- */
 
