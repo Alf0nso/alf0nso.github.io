@@ -38,6 +38,7 @@ li { font-size: 1.4em; }
 
 .Main a {
     color: black;
+    hyphens: auto;
 }
 /* --------------------------  */
 
