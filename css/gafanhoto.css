@@ -38,7 +38,13 @@ li { font-size: 1.4em; }
 
 .Main a {
     color: black;
+
+    /* To make it possible for links to break,
+       just in case they are a bit too big.
+     */
     hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 /* --------------------------  */
 
