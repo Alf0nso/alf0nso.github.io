@@ -6,14 +6,36 @@
 #+attr_html: :clear: both
 [[./images/myself/me_with_a_mask.png]]
 
-Currently (2024-10-22):
+Currently (2025-10-23):
+- *Finished* “homenagem à catalunha”
+- Have been trying to help with bugs in flang ([[https://github.com/llvm/llvm-project/issues/134986][issue]])
+- Helped with a small patch for [[https://github.com/supercollider/scel][sclang mode]] ([[https://github.com/supercollider/scel/pull/63][pull request]])
+- Played and Finished the main game of Outer Wilds, it's amazing!
+- Have been to Romania (specifically Bucharest)
+
+_Thoughts:_
+
+A lot of time has passed since the last *now/* update, (a year). This is
+largely due to my need of chaining dependencies for any simple
+task. When I add a line to this page saying I *finished* a book, for
+example, my head always drifts to the idea of also having a separate
+linked post with the photograph of the book's cover and a paragraph
+expressing my feeling towards the work. Finding the ideal photograph,
+re-sizing it, choosing a good format, dithering/or not, writing my
+thoughts, editing what I wrote, and many other tasks, suddenly
+materializes on top of "writing a single line saying I finished
+reading a book". The concept has a name: [[https://xo.tc/what-is-yak-shaving.html][yak shaving]], and it is indeed
+sort of a huge problem in my life... For *now/* I am setting the goal of
+avoiding this behaviour at all costs by accepting that anything I
+write here can be edited, improved upon or extended later!
+* Previously
+** 2024-10-22
 - Life is starting to look more like life
 - *Currently* "homenagem à catalunha" by Orwell
 - My partner bought me Miyoo mini+ which made me really happy
-  
-* Previously
 ** 2024-08-25
-- Finished reading Jane Austen's Persuasion.
+- *Started* and *Finished* reading Jane Austen's Persuasion.
+- *Dropped* "The Hundred Years' War on Palestine" (for now...)
 - Found a stable place to sleep and live (for now at least).
 - Finally managed to rest properly and recover strength.
 ** 2024-07-31
@@ -38,3 +60,4 @@ Currently (2024-10-22):
 - On BSC I am working with loop optimisation.
 - Finished the book I was reading from Silvia Federici.
 - *Currently* reading "Ensaio sobre a lucidez" by Saramago.
+
