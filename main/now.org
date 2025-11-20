@@ -7,10 +7,12 @@
 [[./images/myself/me_with_a_mask.png]]
 
 Currently (2025-10-23):
-- *Finished* “homenagem à catalunha”
+- *Started* "As intermitências da morte"
+- *Started* and *finished* "O Homem Duplicado"
 - Have been trying to help with bugs in flang ([[https://github.com/llvm/llvm-project/issues/134986][issue]])
 - Helped with a small patch for [[https://github.com/supercollider/scel][sclang mode]] ([[https://github.com/supercollider/scel/pull/63][pull request]])
 - Played and Finished the main game of Outer Wilds, it's amazing!
+- *Finished* “homenagem à catalunha”
 - Have been to Romania (specifically Bucharest)
 
 _Thoughts:_
