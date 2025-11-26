@@ -118,7 +118,9 @@ buildSite = hakyllWith config $ do
     route   idRoute
     compile compressCssCompiler
 
-  match ("main/images/**.png" .||. "main/images/**.svg") $ do
+  match ("main/images/**.png"
+         .||. "main/images/**.svg"
+         .||. "main/images/**.webp") $ do
     route   $ removeMainFolder
     compile copyFileCompiler
 
@@ -167,6 +169,7 @@ buildSite = hakyllWith config $ do
   match ("main/presentations/*/**.html"
          .||. "main/presentations/*/**.png"
          .||. "main/presentations/*/**.jpeg"
+         .||. "main/presentations/*/**.svg"
         ) $ do
     route   $ removeMainFolder
     compile copyFileCompiler
