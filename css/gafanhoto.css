@@ -28,10 +28,13 @@ li { font-size: 1.4em; }
 }
 
 /* Main related configuration */
-.Main { grid-area: Main; }
+.Main {
+    grid-area: Main;
+    position: relative;
+}
 
 .Main p {
-    font-size: 1.4em;
+    font-size: 1.5em;
     margin: 0px;
     text-align: justify;
 }
@@ -46,7 +49,6 @@ li { font-size: 1.4em; }
     overflow-wrap: break-word;
     word-break: break-word;
 }
-/* --------------------------  */
 
 .Main h1 {
     clear: both;
@@ -59,6 +61,17 @@ li { font-size: 1.4em; }
     font-size: 2em;
     margin-bottom: 10px;
 }
+
+.Main pre {
+    text-align: right;
+}
+
+.Main #increment {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+/* --------------------------  */
 
 /* Bibliography formatting */
 h2#references {
@@ -237,6 +250,19 @@ figcaption {
     .Main p {
 	/* origin: 1.4em */
 	font-size: 1.2em;
+    }
+
+    .Main pre {
+	font-size: calc(100vw / 50);
+	line-height: 1;
+	white-space: pre;
+	overflow: hidden;
+	margin: 0;
+    }
+
+    .Main #increment {
+        position: static;
+        margin-top: 2em;
     }
     /* ------------------------------ */
 
