@@ -66,10 +66,18 @@ li { font-size: 1.4em; }
     text-align: right;
 }
 
+/* This section is mainly dedicated
+   to the 404 page. */
 .Main #increment {
     position: absolute;
     bottom: 0;
     left: 0;
+    text-align: left;
+    width: 40%;
+}
+
+.Main #increment p {
+    margin: 2% 2%;
 }
 /* --------------------------  */
 
@@ -263,6 +271,8 @@ figcaption {
     .Main #increment {
         position: static;
         margin-top: 2em;
+	text-align: auto;
+	width: 100%;
     }
     /* ------------------------------ */
 
