@@ -39,6 +39,11 @@ li { font-size: 1.4em; }
     text-align: justify;
 }
 
+.Main p:first-of-type:first-letter {
+    font-size: 2em;
+    font-weight: bold;
+}
+
 .Main a {
     color: black;
 
@@ -200,16 +205,18 @@ figure {
 }
 
 figcaption::before {
-    content: "{ "
+    content: "{"
 }
 
 figcaption::after {
-    content: " }"
+    content: "}"
 }
 
 figcaption {
     display: table-caption;
     caption-side: bottom;
+    padding-left: 1ch;
+    text-indent: -1ch;
 }
 
 /* ------------------------------ */
