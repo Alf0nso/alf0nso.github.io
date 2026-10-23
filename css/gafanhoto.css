@@ -1,10 +1,15 @@
 html, body {
     margin: 0;
     font-family: serif;
+    cursor: url("../images/mouse/handnormal-small.png") 10 5, default;
 }
 
 /* li::marker { content: '\2192  '; } */
 li { font-size: 1.4em; }
+
+body a {
+    cursor: url("../images/mouse/handmove-small.png") 15 5, pointer;
+}
 
 /* General description of the page.
    The whole website follows a very typical
